@@ -51,13 +51,7 @@ gulp.task('libs-css', ['sass'], function(){
 });
 gulp.task('libs-js', function(){
   return gulp.src([
-    'app/libs/CubeGallery.js',
-    'app/libs/Modernizr.custom.js',
-    'app/libs/slick-carousel/slick/slick.min.js',
-    'app/libs/scrollmagic/ScrollMagic.min.js',
-    'app/libs/scrollmagic/addIndicators.min.js',
-    // 'app/libs/scrollmagic/animation.gsap.js',
-    'app/libs/scrollmagic/TweenMax.min.js'
+    'app/libs/slick-carousel/slick/slick.min.js'
   ])
     .pipe(concat('libs.min.js'))
     .pipe(uglify())
@@ -66,22 +60,22 @@ gulp.task('libs-js', function(){
 
 gulp.task('tiny', function(){
   return gulp.src('app/img/**/*.+(png|jpg|jpeg)')
-    .pipe(cache(tinypng({
-      key: 'IVBCPg0Rjh1AsWpQzuH9VSK5qla51OIx',
-      sigFile: 'images/.tinypng-sigs',
-      sameDest: true,
-      log: true
-    })))
+    // .pipe(cache(tinypng({
+    //   key: 'IVBCPg0Rjh1AsWpQzuH9VSK5qla51OIx',
+    //   sigFile: 'images/.tinypng-sigs',
+    //   sameDest: true,
+    //   log: true
+    // })))
     .pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('img', ['tiny'], function(){
   return gulp.src('app/img/**/*.+(svg|ico)')
-    // .pipe(cache(imagemin({
-    //   interlaced: true,
-    //   progressive: true,
-    //   svgoPlugins: [{removeViewBox: false}]
-    // })))
+    .pipe(cache(imagemin({
+      interlaced: true,
+      progressive: true,
+      svgoPlugins: [{removeViewBox: false}]
+    })))
     .pipe(gulp.dest('dist/img'));
 });
 
