@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<title>Alps</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/libs.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/style.bundle.css">
+
+</head>
+
+<body>
+
+	@import "header.html"
+	@import "mobile-header.html"
+	<section class="section registration">
+		<div class="registration-container">
+			<h2 class="registration-title">Мы рады приветствовать Вас в корпоративной системе компании ALPS&CHASE.</h2>
+			<p class="registration-description">Пожалуйста, авторизуйтесь, чтобы войти в свой профиль.</p>
+			<div class="registration-lang">
+				<p class="registration-lang-text">Язык сайта:</p>
+				<div class="lang header_block_right">
+					<a href="#" class="lang__current dropdown_link">RU <i class="far fa-angle-down"></i></a>
+					<div class="lang__list dropdown_menu">
+						<a href=""><i></i><span>RU</span></a>
+						<a href=""><i></i><span>EN</span></a>
+						<a href=""><i></i><span>FR</span></a>
+						<a href=""><i></i><span>DE</span></a>
+						<a href=""><i></i><span>IT</span></a>
+						<a href=""><i></i><span>ES</span></a>
+					</div>
+				</div>
+			</div>
+			<form class="contact-form contact-form_reg">
+				<input type="text" class="contact-form-input" required="" placeholder="Логин:">
+				<input type="password" class="contact-form-input" required="" placeholder="Пароль:">
+				<a href="" class="contact-form-link">Забыли пароль?</a>
+				<button type="submit" class="contact-form-btn registration_btn">Зарегистрироватся</button>
+				<button type="submit" class="contact-form-btn contact-form-btn_white">Войти</button>
+			</form>
+		</div>
+	</section>
+	@import "footer.html"
+	<script src="js/jquery.min.js"></script>
+	<script src="js/libs.min.js"></script>
+	<script src="js/common.js"></script>
+
+</body>
+</html>

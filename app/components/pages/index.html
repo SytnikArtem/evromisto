@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<title>Alps</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/libs.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/style.bundle.css">
+
+</head>
+
+<body>
+
+	@import "header.html"
+	@import "mobile-header.html"
+	<div class="cube_rotator final" style="perspective: 3360px;">
+		<div class="cube_wrap" style="transform-style: preserve-3d; transform: translateZ(-420px);">
+			<div class="cube_main"style="transform-origin: 50% 50px; transform-style: preserve-3d;" >
+				<div class="cube_rotator__side" style="transform: translateZ(50px)"><i class="i-s-1"></i> <span>лет практики</span></div>
+				<div class="cube_rotator__side" style="transform-origin:center bottom 0px;transform: rotateX(-90deg) translateZ(-100px) translateY(50px);"><i class="i-s-2"></i> <span>эффективность</span></div>
+				<div class="cube_rotator__side" style="transform: rotateX(180deg) translateZ(50px) translateY(200px);"><i class="i-s-3"></i> <span>безопасность</span></div>
+				<div class="cube_rotator__side" style="transform-origin: center top 0px; transform: rotateX(-270deg) translateZ(300px) translateY(-50px)"><i class="i-s-4"></i> <span>результат</span></div>
+			</div>
+			<div class="cube_rotator_arrow"></div>
+			<div class="cube_rotator_arrow_up"><i class="far fa-angle-up"></i></div>
+			<div class="cube_rotator_arrow_down"><i class="far fa-angle-down"></i></div>
+		</div>
+	</div>
+	<div class="main_slider" style="perspective: 3360px;">
+		<div class="main_slider__wrap" style="transform-style: preserve-3d; ">
+			<div class="main_slider__main" style="transform-style: preserve-3d;">
+				<div class="slide slide_1 active" style="background-image: url(img/slide_1.jpg);">
+					<div class="letter">
+						<span class="slide_h1">15</span>
+						<span class="slide_h2">лет работы</span>
+						<span class="slide_h3">Сопровождение юридических <br>
+		и бухгалтерских проектов <br>
+		По всем странам СНГ и Балтии</span>
+
+						<a class="btn btn-main">О компании</a>
+					</div>
+
+				</div>
+				<div class="slide slide_2" style="background-image: url(img/slide_2.jpg);">
+
+					<div class="letter">
+						<span class="slide_h1">24/7</span>
+						<span class="slide_h2">ОПЕРАТИВНОЕ <br>
+		И ЭФФЕКТИВНОЕ РЕШЕНИЕ</span>
+						<span class="slide_h3">ежедневных задач клиентов нашими специалистами</span>
+						<a class="btn btn-main">О компании</a>
+					</div>
+
+				</div>
+				<div class="slide slide_3" style="background-image: url(img/slide_3.jpg);">
+
+					<div class="letter">
+						<span class="slide_h1">27001</span>
+						<span class="slide_h2">ISO сертификат</span>
+						<span class="slide_h3">подтверждает информационную <br>
+		безопасность работы нашей компании <br>
+		с данными клиентов</span>
+
+						<a class="btn btn-main">О компании</a>
+					</div>
+
+				</div>
+				<div class="slide slide_4" style="background-image: url(img/slide_4.jpg);">
+
+					<div class="letter">
+						<span class="slide_h2">более</span>
+						<span class="slide_h1">1000</span>
+						<span class="slide_h2">клиентов</span>
+						<span class="slide_h3">уже воспользовались нашими услугами</span>
+
+						<a class="btn btn-main">О компании</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	@import "footer-main.html"
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/libs.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/index.js"></script>
+
+</body>
+</html>

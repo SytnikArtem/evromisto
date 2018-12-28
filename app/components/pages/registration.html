@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<title>Alps</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/libs.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/style.bundle.css">
+
+</head>
+
+<body>
+
+	@import "header.html"
+	@import "mobile-header.html"
+	<section class="section registration">
+		<div class="registration-container">
+			<h2 class="registration-title">Мы рады приветствовать Вас в корпоративной системе компании ALPS&CHASE.</h2>
+			<p class="registration-description">Пожалуйста, зарегистрируйтесь, чтобы войти в свой профиль.</p>
+			<div class="registration-lang">
+				<p class="registration-lang-text">Язык сайта:</p>
+				<div class="lang header_block_right">
+					<a href="#" class="lang__current dropdown_link">RU <i class="far fa-angle-down"></i></a>
+					<div class="lang__list dropdown_menu">
+						<a href=""><i></i><span>RU</span></a>
+						<a href=""><i></i><span>EN</span></a>
+						<a href=""><i></i><span>FR</span></a>
+						<a href=""><i></i><span>DE</span></a>
+						<a href=""><i></i><span>IT</span></a>
+						<a href=""><i></i><span>ES</span></a>
+					</div>
+				</div>
+			</div>
+			<form class="contact-form contact-form_reg">
+				<input type="text" class="contact-form-input" required="" placeholder="Ваше имя:">
+				<input type="phone" class="contact-form-input" required="" placeholder="Ваш телефон:">
+				<input type="email" class="contact-form-input" required="" placeholder="Ваш e-mail:">
+				<input type="text" class="contact-form-input" required="" placeholder="Наименование:">
+				<input type="text" class="contact-form-input" required="" placeholder="Должность:">
+				<textarea class="contact-form-textarea" required="" placeholder="Сообщение:"></textarea>
+				<label class="contact-form-label">
+					<input type="checkbox" required="" class="contact-form-check">
+					Даю свое согласие на обработку персональных данных.
+				</label>
+				<p class="contact-form-description">*Все поля обязательны для заполнения</p>
+				<button type="submit" class="contact-form-btn registration_btn registration_btn_open">Зарегистрироватся</button>
+				<button type="submit" class="contact-form-btn contact-form-btn_white">Войти</button>
+			</form>
+		</div>
+	</section>
+	<div class="registration-popup">
+		<div class="registration-popup-container">
+			<h4 class="registration-popup-title">Регистрация прошла успешно.</h4>
+			<p class="registration-popup-text">Вы можете пользоваться корпоративной системой ALPS&CHASE.</p>
+			<button type="submit" class="contact-form-btn contact-form-btn_reg">Ok</button>
+		</div>
+	</div>
+	@import "footer.html"
+	<script src="js/jquery.min.js"></script>
+	<script src="js/libs.min.js"></script>
+	<script src="js/common.js"></script>
+
+</body>
+</html>
