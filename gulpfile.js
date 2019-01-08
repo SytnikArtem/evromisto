@@ -54,7 +54,12 @@ gulp.task('libs-js', function(){
       'app/libs/slick-carousel/slick/slick.min.js',
       'app/libs/fullpage.js/dist/fullpage.min.js',
       'app/libs/fullpage.js/dist/fullpage.extensions.min.js',
-      'app/libs/wow/dist/wow.min.js'
+      'app/libs/select/ddslick.js',
+      'app/libs/wow/dist/wow.min.js',
+      'app/libs/jquery-ui.js',
+      'app/libs/scrollmagic/ScrollMagic.min.js',
+      'app/libs/scrollmagic/addIndicators.min.js',
+      'app/libs/scrollmagic/TweenMax.min.js'
   ])
     .pipe(concat('libs.min.js'))
     .pipe(uglify())
