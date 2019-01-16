@@ -5,12 +5,12 @@ $(document).ready(function() {
         tick,
         isPause,
         percentTime;
-    if ($(window).width() > 1023) {
+    if ($(window).width() > 1024) {
         $('#fullpage').fullpage({
-            scrollBar:false,
+            scrollBar: false,
             controlArrows: false,
             navigation: true,
-            responsiveWidth: 1024,
+            responsiveWidth: 1025,
             onLeave: function(origin, destination, direction, index){
                 wow2 = new WOW(
                     {
@@ -49,62 +49,102 @@ $(document).ready(function() {
                 else {
                     $('.fp-right').removeClass('active');
                 }
+                // if (destination.index == 1){
+                //     $('.menu').addClass('menu_white')
+                // }
+                // else {
+                //     $('.menu').removeClass('menu_white')
+                // }
                 $('.section').eq(destination.index).addClass('up');
                 $('.section').eq(destination.index+1).removeClass('up');
-                // if (direction == 'down') {
-                //     $('.section').eq(destination.index).addClass('index');
-                //     $('.section').removeClass('up');
-                //     setTimeout(function () {
-                //         $('.section').eq(destination.index).siblings().removeClass('index');
-                //     }, 500);
-                // }
-                // if (direction == 'up') {
-                //     $('.section').eq(destination.index).addClass('index');
-                //     $('.section').eq(destination.index).next().addClass('up');
-                //     setTimeout(function () {
-                //         $('.section').eq(destination.index).siblings().removeClass('index');
-                //     }, 500);
-                // }
+            }
+        });
+        $('#fullpage2').fullpage({
+            scrollBar: false,
+            controlArrows: false,
+            navigation: false,
+            scrollOverflow: true,
+            responsiveWidth: 1025,
+            onLeave: function(origin, destination, direction, index){
+                wow2 = new WOW(
+                    {
+                        boxClass:     'wow2',      // default
+                        animateClass: 'animated', // default
+                        offset:       0,          // default
+                        mobile:       true,       // default
+                        live:         true        // default
+                    }
+                )
+                wow2.init();
+                wow3 = new WOW(
+                    {
+                        boxClass:     'wow3',      // default
+                        animateClass: 'animated', // default
+                        offset:       0,          // default
+                        mobile:       true,       // default
+                        live:         true        // default
+                    }
+                )
+                wow3.init();
+                startProgressbar();
+                $('.section.active').find('.wow').removeClass('wow');
+                if(destination.item.classList.contains('section_white')) {
+                    $('.menu, .header').addClass('active');
+                }
+                if(destination.item.classList.contains('section_white')) {
+                    $('.menu, .header').addClass('active');
+                    $('.header').addClass('white')
+                }
+                else {
+                    $('.menu, .header').removeClass('active');
+                    $('.header').removeClass('white')
+                }
+                if(destination.item.classList.contains('fp-right_dark')) {
+                    $('.fp-right').addClass('active');
+                }
+                else {
+                    $('.fp-right').removeClass('active');
+                }
+                $('.section').eq(destination.index).addClass('up');
+                $('.section').eq(destination.index+1).removeClass('up');
             }
         });
     }
     $('.main-slider').slick({
         infinite: true,
-        speed: 500,
         arrows: false,
         slidesToShow: 1,
         slidesToScroll: 1,
         speed: 1000,
         asNavFor: '.connect-slider',
-        cssEase: 'ease-in-out',
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-        ]
+        dots: false,
+        cssEase: 'ease-in-out'
+    });
+    $('.consist-slider').slick({
+        infinite: true,
+        arrows: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 1000,
+        asNavFor: '.consist-numbers-slider',
+        dots: false
+    });
+    $('.consist-numbers-slider').slick({
+        infinite: true,
+        speed: 1000,
+        arrows: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        verticalSwiping: true,
+        asNavFor: '.consist-slider',
+        cssEase: 'cubic-bezier(.36,-0.41,.64,.39)',
+        vertical: true
+    });
+    $('.consist-btn_next').click(function () {
+        $('.consist-slider').slick('slickNext');
+    });
+    $('.consist-btn_back').click(function () {
+        $('.consist-slider').slick('slickPrev');
     });
     $('.main-fourth-btn_back').click(function () {
         $('.main-slider').slick('slickPrev');
@@ -119,7 +159,7 @@ $(document).ready(function() {
                 boxClass:     'wow3',      // default
                 animateClass: 'animated', // default
                 offset:       0,          // default
-                mobile:       true,       // default
+                mobile:       false,       // default
                 live:         true        // default
             }
         )
@@ -133,35 +173,7 @@ $(document).ready(function() {
         slidesToScroll: 1,
         asNavFor: '.main-slider',
         cssEase: 'cubic-bezier(.36,-0.41,.64,.39)',
-        vertical: true,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-        ]
+        vertical: true
     });
     $('.info-slider').slick({
         infinite: true,
@@ -170,37 +182,9 @@ $(document).ready(function() {
         fade: true,
         slidesToShow: 1,
         asNavFor: '.main-slider',
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-        ]
+        slidesToScroll: 1
     });
-    $('.house-floor').slick({
+    $('.house-floor_vertical').slick({
         infinite: true,
         speed: 1000,
         arrows: false,
@@ -210,6 +194,17 @@ $(document).ready(function() {
         asNavFor: '.house-slider',
         cssEase: 'cubic-bezier(.36,-0.41,.64,.39)',
         vertical: true
+    });
+    $('.house-floor_gorizontal').slick({
+        infinite: true,
+        speed: 1000,
+        arrows: false,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        // verticalSwiping: false,
+        asNavFor: '.house-slider',
+        cssEase: 'cubic-bezier(.36,-0.41,.64,.39)',
+        // vertical: false
     });
     $('.house-section').slick({
         infinite: true,
@@ -282,6 +277,7 @@ $(document).ready(function() {
             if(percentTime >= 100)
             {
                 $slick.slick('slickNext');
+                $('.consist-slider').slick('slickNext');
                 startProgressbar();
             }
         }
@@ -302,16 +298,18 @@ $(document).ready(function() {
     $('.header-right-btn').click(function(e){
         e.preventDefault();
         $('.popup').addClass('active');
+        // bodyFreezeScroll();
     });
     $('.popup-close').click(function(e){
         $('.popup').removeClass('active');
+        // bodyUnfreezeScroll();
     });
     wow = new WOW(
         {
             boxClass:     'wow',      // default
             animateClass: 'animated', // default
             offset:       0,          // default
-            mobile:       true,       // default
+            mobile:       false,       // default
             live:         true        // default
         }
     )
@@ -321,7 +319,7 @@ $(document).ready(function() {
             boxClass:     'wow2',      // default
             animateClass: 'animated', // default
             offset:       0,          // default
-            mobile:       true,       // default
+            mobile:       false,       // default
             live:         true        // default
         }
     );
@@ -329,7 +327,8 @@ $(document).ready(function() {
     $(document).mouseup(function (e) {
         var container = $(".popup-container");
         if (container.has(e.target).length === 0){
-            $('.popup').removeClass('active')
+            $('.popup').removeClass('active');
+            // bodyUnfreezeScroll();
         }
     });
     $(".range-line").slider({
@@ -379,7 +378,7 @@ $(document).ready(function() {
         $(".range-line").slider("values",1,value2);
     });
     setTimeout(function () {
-        if($('.list-right').length > 0) {
+        if($('.list-right').length > 0 && $(window).width() > 1024) {
             var heightDuration = $('.list-right').height() - $('.list-filter').height();
             var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "0", offset: "-120"}});
             var scene1 = new ScrollMagic.Scene({
@@ -400,13 +399,15 @@ $(document).ready(function() {
         if(itemIndex > maxIndex) {
             itemIndex = maxIndex
         }
+
+
         currentItem = '.step' + itemIndex;
         $('.list-content-item').css('display', 'none');
-        $(currentItem).css('display', 'block');
+        $(currentItem).css({'display': 'block', 'opacity': '1', 'pointer-events': 'auto'});
         currentPercent = 50 * (itemIndex - 1) + '%';
         $('.list-page-item').eq(itemIndex - 1).addClass('active').siblings().removeClass('active');
         $('.progress_list').css('width', currentPercent);
-        $('html, body').animate({scrollTop: 0},300)
+        $('html, body').animate({scrollTop: 0},300);
     });
     $('.list-btn_back').click(function(){
         itemIndex = itemIndex - 1;
@@ -440,8 +441,8 @@ $(document).ready(function() {
     });
     $('.house-top-section').hover(function () {
         var sectionIndex = $(this).index();
-        $('.house-top-section').eq(sectionIndex).addClass('hover').siblings().removeClass('hover');
-        $('.house-top-item').eq(sectionIndex).addClass('hover').siblings().removeClass('hover')
+        $(this).parent().find('.house-top-section').eq(sectionIndex).addClass('hover').siblings().removeClass('hover');
+        $(this).parent().parent().find('.house-top-item').eq(sectionIndex).addClass('hover').siblings().removeClass('hover')
     },function () {
         $('.house-top-section').removeClass('hover');
         $('.house-top-item').removeClass('hover');
@@ -449,21 +450,144 @@ $(document).ready(function() {
     $('.house-top-section').click(function () {
         var sliderItem = $(this).index();
         $(this).addClass('active').siblings().removeClass('active');
-        $('.house-top-item').eq(sliderItem).addClass('active').siblings().removeClass('active');
+        $(this).parent().parent().find('.house-top-item').eq(sliderItem).addClass('active').siblings().removeClass('active');
         $('.house-slider2').slick('slickGoTo', sliderItem)
     });
     $('.house-slider2').on('beforeChange', function(event, slick, currentSlide, nextSlide){
         $('.house-top-item').eq(nextSlide).addClass('active').siblings().removeClass('active');
         $('.house-top-section').eq(nextSlide).addClass('active').siblings().removeClass('active');
     });
+    $('.apartment-plan').click(function(){
+       $('.apartment-popup').addClass('active');
+    });
+    $('.apartment-close').click(function(){
+        $('.apartment-popup').removeClass('active');
+    });
+    $('.burger').click(function () {
+       $(this).toggleClass('active');
+       $(this).removeClass('white');
+        bodyFreezeScroll();
+       $('.header_mob').toggleClass('custom');
+       $('.header-menu').toggleClass('active');
+
+        if ($(this).hasClass('active')) {
+            bodyFreezeScroll();
+        }
+        else {
+            bodyUnfreezeScroll();
+            $(this).addClass('white');
+        }
+    });
+    var $body = $(window.document.body);
+    function bodyFreezeScroll() {
+        var bodyWidth = $body.innerWidth();
+        $body.css('overflow', 'hidden');
+        $body.css('marginRight', ($body.css('marginRight') ? '+=' : '') + ($body.innerWidth() - bodyWidth))
+    }
+
+    function bodyUnfreezeScroll() {
+        var bodyWidth = $body.innerWidth();
+        $body.css('marginRight', '0')
+        $body.css('overflow', 'auto');
+    }
+    function house(){
+        $('.house').hover(function () {
+            var numberStreet = $(this).data("number");
+            var streetName = $(this).data("street");
+            var houseStatus = $(this).data("info");
+            var saleRoom = $(this).data("sale");
+            var nowRoom = $(this).data("now");
+            var special = $(this).data("spec");
+            var positionCart = $(this).data("position");
+            var scrollBlock = $('.main-second-build').scrollLeft();
+            var leftPosition = $(this).find('.house__number').offset().left - $('.main-second-build').offset().left + scrollBlock;
+            var topPosition = $(this).find('.house__number').offset().top - $('.main-second-build').offset().top;
+            console.log(leftPosition);
+            console.log(topPosition);
+            console.log(scrollBlock);
+            $('.cart').addClass('active');
+            if(special !== undefined) {
+                $('.cart-special').text(special);
+                $('.cart-top').css('display', 'none');
+            }
+            if(saleRoom == undefined) {
+                $('.cart-bottom').css('display', 'none');
+                $('.cart-info').css('color', '#b0b4b9');
+                // $('.cart-special').text('');
+            }
+            else {
+                $('.cart-bottom').css('display', "flex");
+                $('.cart-info').css('color', '#ec6400');
+                $('.cart-top').css('display', 'flex');
+                $('.cart-special').text('');
+            }
+            $('.cart-top-right').text(numberStreet);
+            $('.cart-info').text(houseStatus);
+            $('.cart-bottom-number_sale').text(saleRoom);
+            $('.cart-bottom-number_now').text(nowRoom);
+            $('.cart-street').text(streetName);
+            var cartWidth = $('.cart').width();
+            var cartHeight = $('.cart').height();
+
+            if(positionCart == "top") {
+                $('.cart').css({left: leftPosition - cartWidth, top: topPosition - cartHeight * 3});
+                console.log('sss');
+                console.log(cartHeight);
+                console.log(cartWidth);
+            }
+            else if(positionCart == "top2") {
+                $('.cart').css({left: leftPosition - cartWidth, top: topPosition - cartHeight});
+            }
+            else {
+                $('.cart').css({left: leftPosition, top: topPosition});
+                // console.log(2);
+            }
+
+
+        }, function(){
+            $('.cart').removeClass('active')
+        });
+    }
+    house();
+    $(".popup-input").mask("999 999 99 99",{placeholder:""});
+    $('.left-list-btn').click(function () {
+       $('.list-right').addClass('active');
+       bodyFreezeScroll();
+    });
+    $('.filter-close').click(function () {
+        $('.list-right').removeClass('active');
+        bodyUnfreezeScroll()
+    });
+    $('.gallery-main').masonry({
+        // options
+        itemSelector: '.gallery-item',
+        percentPosition: true,
+        gutter: 10
+    });
+    $('[data-fancybox="gallery"]').fancybox({
+        buttons: [
+            // "zoom",
+            //"share",
+            // "slideShow",
+            //"fullScreen",
+            //"download",
+            // "thumbs",
+            "close"
+        ],
+        infobar: false
+    });
 });
 $(window).scroll(function() {
     var scrollTop;
     scrollTop = $(this).scrollTop();
     if (scrollTop > 50) {
+        $('.burger').addClass('white');
         $('.header').addClass('white');
+        // $('.header_mob').addClass('custom');
     }
     else {
+        $('.burger').removeClass('white');
         $('.header').removeClass('white');
+        // $('.header_mob').removeClass('custom');
     }
 });

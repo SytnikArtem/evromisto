@@ -5,8 +5,7 @@
 	<meta charset="utf-8">
 	<title>Evromisto</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+    <meta name="viewport" content="width=480; maximum-scale=1.0"/>
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="css/libs.min.css">
 	<link rel="stylesheet" href="css/main.css">
@@ -16,6 +15,7 @@
 <body>
 
 	@import "header-active.html"
+    @import "header-mob.html"
 	@import "menu-active.html"
     <div class="list-line">
         <div class="list-line-content wow heightGo"></div>
@@ -23,6 +23,9 @@
     <section class="section list">
         <div class="list-flex">
             <div class="list-left">
+                <div class="left-list-btn">
+                    <img src="img/filter.svg" alt="" class="left-list-img">
+                </div>
                 <h2 class="list-title wow fadeInUp" data-wow-delay="0.3s">Квартиры</h2>
                 <p class="list-text wow fadeInUp" data-wow-delay="0.5s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo</p>
                 <div class="list-content">
@@ -781,29 +784,39 @@
             </div>
             <div class="list-right">
                 <div class="list-filter filter">
+                    <div class="filter-close">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" version="1.1" x="0px" y="0px" viewBox="0 0 14.5 14.9" style="enable-background:new 0 0 14.5 14.9;" xml:space="preserve">
+                        <style type="text/css">
+                            .st0f{fill-rule:evenodd;clip-rule:evenodd;fill:#8c8c8c}
+                        </style>
+                                                    <path id="close2" class="st0f" d="M8.4,7.5l5.9,5.9c0.3,0.3,0.3,0.7,0,1c-0.3,0.3-0.7,0.3-1,0L7.4,8.5l-6.3,6.3c-0.3,0.3-0.7,0.3-1,0  c0,0,0,0,0,0c-0.3-0.3-0.3-0.7,0-1c0,0,0,0,0,0l6.3-6.3L0.2,1.2c-0.3-0.3-0.3-0.7,0-1c0,0,0,0,0,0c0.3-0.3,0.7-0.3,1,0c0,0,0,0,0,0  l6.3,6.3l5.9-5.9c0.3-0.3,0.7-0.3,1,0c0.3,0.3,0.3,0.7,0,1L8.4,7.5z"/>
+                        </svg>
+                    </div>
                     <a href="" class="filter-clean">Очистить фильтр</a>
                     <div class="filter-block wow fadeIn" data-wow-delay="0.3s">
                         <p class="filter-title">Количество комнат</p>
-                        <label class="filter-row">
-                            <input type=checkbox class="filter-input">
-                            <span class="filter-check"></span>
-                            <span class="filter-row-text">Однокомнатные</span>
-                        </label>
-                        <label class="filter-row">
-                            <input type=checkbox class="filter-input">
-                            <span class="filter-check"></span>
-                            <span class="filter-row-text">Двухкомнатные</span>
-                        </label>
-                        <label class="filter-row">
-                            <input type=checkbox class="filter-input">
-                            <span class="filter-check"></span>
-                            <span class="filter-row-text">Трехкомнатные</span>
-                        </label>
-                        <label class="filter-row">
-                            <input type=checkbox class="filter-input">
-                            <span class="filter-check"></span>
-                            <span class="filter-row-text">Двухуровневые</span>
-                        </label>
+                        <div class="filter-flex">
+                            <label class="filter-row">
+                                <input type=checkbox class="filter-input">
+                                <span class="filter-check"></span>
+                                <span class="filter-row-text">Однокомнатные</span>
+                            </label>
+                            <label class="filter-row">
+                                <input type=checkbox class="filter-input">
+                                <span class="filter-check"></span>
+                                <span class="filter-row-text">Двухкомнатные</span>
+                            </label>
+                            <label class="filter-row">
+                                <input type=checkbox class="filter-input">
+                                <span class="filter-check"></span>
+                                <span class="filter-row-text">Трехкомнатные</span>
+                            </label>
+                            <label class="filter-row">
+                                <input type=checkbox class="filter-input">
+                                <span class="filter-check"></span>
+                                <span class="filter-row-text">Двухуровневые</span>
+                            </label>
+                        </div>
                     </div>
                     <div class="filter-block wow fadeIn" data-wow-delay="0.5s">
                         <p class="filter-title">Общая площадь, м<span class="filter-title-index">2</span></p>
@@ -906,12 +919,16 @@
             <form action="" class="popup-form">
                 <h2 class="popup-title">Заказать звонок</h2>
                 <p class="popup-text">Введите ваш номер телефона и мы свяжемся за<br> 30 секунд!</p>
+
                 <div class="popup-form-row">
-                    <select id="options" class="popup-select">
-                        <option value="+38" class="front-form-option" data-imagesrc="img/ua.svg"></option>
-                        <option value="+7" class="front-form-option" data-imagesrc="img/ru.svg"></option>
-                    </select>
-                    <input type="phone" class="popup-input" placeholder="067 890 90 99" required>
+                    <!--<select id="options" class="popup-select">-->
+                    <!--<option value="+38" class="front-form-option" data-imagesrc="img/ua.svg"></option>-->
+                    <!--&lt;!&ndash;<option value="+7" class="front-form-option" data-imagesrc="img/ru.svg"></option>&ndash;&gt;-->
+                    <!--</select>-->
+                    <div class="popup-select">
+                        <a class="dd-selected"><img class="dd-selected-image" src="img/ua.svg"></a>
+                    </div>
+                    <input type="tel" class="popup-input" placeholder="067 890 90 99" required>
                 </div>
                 <button type="submit" class="popup-btn btn btn_active">жду звонка !</button>
             </form>
@@ -936,6 +953,7 @@
             </svg>
         </div>
     </div>
+    @import "footer.html"
 
 
 	<script src="js/jquery.min.js"></script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<title>Evromisto</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+    <meta name="viewport" content="width=480; maximum-scale=1.0"/>
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/libs.min.css">
+	<link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body class="error-page">
+
+	@import "header.html"
+	@import "header-mob.html"
+	@import "menu.html"
+    <section class="section error">
+        <div class="main-first-overlay wow widthGo"></div>
+        <div class="error-block">
+            <p class="error-number wow fadeInUp" data-wow-delay="0.7s">404</p>
+            <p class="error-text wow fadeInUp" data-wow-delay="0.9s">Страница не найдена. Вы можете<br> перейти на <a href="" class="error-link">Главную</a></p>
+        </div>
+        <div class="main-first-build build">
+            <div class="build-third wow2 goTop" data-wow-delay="0.5s"></div>
+        </div>
+    </section>
+    @import "footer.html"
+    <div class="popup">
+        <div class="popup-container">
+            <form action="" class="popup-form">
+                <h2 class="popup-title">Заказать звонок</h2>
+                <p class="popup-text">Введите ваш номер телефона и мы свяжемся за<br> 30 секунд!</p>
+
+                <div class="popup-form-row">
+                    <!--<select id="options" class="popup-select">-->
+                        <!--<option value="+38" class="front-form-option" data-imagesrc="img/ua.svg"></option>-->
+                        <!--&lt;!&ndash;<option value="+7" class="front-form-option" data-imagesrc="img/ru.svg"></option>&ndash;&gt;-->
+                    <!--</select>-->
+                    <div class="popup-select">
+                        <a class="dd-selected"><img class="dd-selected-image" src="img/ua.svg"></a>
+                    </div>
+                    <input type="tel" class="popup-input" placeholder="067 890 90 99" required>
+                </div>
+                <button type="submit" class="popup-btn btn btn_active">жду звонка !</button>
+            </form>
+        </div>
+        <div class="popup-close">
+            <img src="img/close.svg" alt="" class="popup-close-img">
+        </div>
+    </div>
+
+
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/libs.min.js"></script>
+    <script src="js/common.js"></script>
+</body>
+</html>

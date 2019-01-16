@@ -54,7 +54,8 @@ blockquote, q
 blockquote:before, blockquote:after, q:before, q:after
 	content: ''
 	content: none
-
+a
+	outline: none
 table
 	border-collapse: collapse
 	border-spacing: 0
@@ -100,12 +101,16 @@ img
 		background: #58bae7
 		&:hover
 			background: #ea641e
+	&_dark
+		background: #1c1924
+		&:hover
+			background: #EA641E
 .title
 	color: #ffffff
 	font-family: Arial
 	font-size: 68px
 	font-weight: 700
-	line-height: 65.75px
+	line-height: 0.97
 	text-transform: uppercase
 .nowrap
 	white-space: nowrap
@@ -123,7 +128,7 @@ img
 	top: 0
 	width: 100%
 	padding: 40px 0 20px
-	z-index: 5
+	z-index: 6
 	transition: all .5s ease
 	&.white
 		background: #ffffff
@@ -167,7 +172,7 @@ img
 			justify-content: flex-start
 		&-btn
 			margin-left: 60px
-	&.active, &.white
+	&.active, &.white, &.custom
 		.header-left-text, .header-left-phone
 			color: rgba(43, 56, 71, 0.5)
 		.lang-link
@@ -179,6 +184,52 @@ img
 		.btn_white
 			color: #6b7077
 			border-color: rgba(107, 112, 119, 0.2)
+	&_blue
+		&.white
+			background: #58bae7
+		&.active, &.white
+			.header-left-text, .header-left-phone
+				color: rgba(255, 255, 255, 0.8)
+			.lang-link
+				color: #ffffff
+			.lang-link.active
+				color: rgba(255, 255, 255, 0.8)
+			.lang-line
+				background-color: rgba(255, 255, 255, 0.8)
+			.btn_white
+				color: #ffffff
+				border-color: rgba(255, 255, 255, 0.5)
+	&-menu
+		position: fixed
+		top: 0
+		left: 0
+		width: 100%
+		height: 100vh
+		overflow: scroll
+		background: #ffffff
+		padding: 25px 60px 6.78vh 60px
+		opacity: 0
+		pointer-events: none
+		transition: opacity .5s ease
+		z-index: 10
+		&-flex
+			display: flex
+			flex-direction: column
+			align-items: flex-start
+			justify-content: space-between
+			height: auto
+		&-btn
+			margin: 5.27vh 0 6.44vh
+		&.active
+			opacity: 1
+			pointer-events: auto
+		&-info, &-phone
+			color: rgba(43, 56, 71, 0.51)
+			font-family: "SegoeUISemiBold"
+			font-size: 14px
+			line-height: 23.91px
+			text-decoration: none
+
 
 .lang
 	&-item
@@ -231,14 +282,14 @@ img
 			padding-left: 23vw
 			position: relative
 			&_third
-				padding-bottom: 16vh
+				padding-bottom: 14vh
 				display: flex
 				flex-direction: column
 				align-items: flex-start
 				justify-content: space-between
 			&_fourth
 				display: flex
-				padding-bottom: 120px
+				padding-bottom: 11vh
 				justify-content: space-between
 			&_fifth
 				display: flex
@@ -283,16 +334,21 @@ img
 			margin-top: 75px
 		&-build
 			position: absolute
-			height: 100%
 			right: 0
 			bottom: 0
-			margin-left: 16vw
+			//margin-left: 16vw
 			height: auto
+			width: calc(100% - 16vw)
+			//padding-left: 65px
 		&-svg
-			position: absolute
+			position: relative
 			left: 0
-			bottom: 0
+			bottom: -4.3vw
 			height: auto
+			background: url(../img/build.png)
+			background-position: left -2px center
+			background-size: 100% auto
+			background-repeat: no-repeat
 	&-label
 		color: #7e848b
 		font-size: 13px
@@ -307,7 +363,6 @@ img
 		top: 10px
 		left: -250px
 		pointer-events: none
-		pointer-events: auto
 		&_white
 			color: rgba(255, 255, 255, 0.5)
 	&-third
@@ -369,12 +424,12 @@ img
 			color: #d36b0e
 			font-family: "SegoeUIItalic"
 			font-size: 20px
-			line-height: 23.91px
+			line-height: 1.2
 			margin-top: 15px
 		&-text
 			color: #474e56
 			font-size: 14px
-			line-height: 23.91px
+			line-height: 1.71
 			margin-top: 25px
 		&-right
 			width: 40vw
@@ -382,7 +437,7 @@ img
 			position: relative
 			height: calc(100vh - 300px)
 		&-list
-			margin-top: 70px
+			margin-top: 6.5vh
 			display: flex
 			flex-direction: column
 			align-items: flex-start
@@ -437,6 +492,7 @@ img
 			align-items: center
 			justify-content: space-between
 			width: 100%
+			margin-top: 20px
 		&-top
 			width: 100%
 		&-block
@@ -462,7 +518,8 @@ img
 			font-size: 13px
 			text-transform: uppercase
 			margin-right: 30px
-			&.active
+			cursor: pointer
+			&.active, &:hover
 				color: #2b3847
 				font-family: "SegoeUISemiBold"
 		&-name
@@ -497,7 +554,7 @@ img
 				position: absolute
 				content: ''
 				left: 0
-				top: 0
+				bottom: 0
 				height: 100%
 				width: 40%
 				background: linear-gradient(to right, #fafbfc 0%, rgba(250, 251, 252, 0) 100%)
@@ -532,7 +589,7 @@ img
 	position: fixed
 	height: 100vh
 	width: 16vw
-	z-index: 5
+	z-index: 6
 	padding: 50px 0 0 0
 	top: 0
 	left: 0
@@ -648,6 +705,15 @@ img
 		height: 100%
 		background: url("../img/home2.png") no-repeat bottom -120px left
 		background-size: cover
+	&-third
+		position: absolute
+		z-index: -1
+		left: 0
+		top: 0
+		width: 100%
+		height: 100%
+		background: url("../img/error.png") no-repeat bottom 0 left -100px
+		background-size: contain
 .info-slider
 	width: 100%
 .progress
@@ -679,7 +745,7 @@ img
 	left: 0
 	width: 100%
 	height: 100%
-	z-index: 5
+	z-index: 6
 	background: rgba(23, 26, 29, 0.8)
 	display: flex
 	align-items: flex-start
@@ -750,6 +816,8 @@ img
 	width: 55px!important
 .dd-selected
 	padding: 5px 20px 5px 0!important
+	display: block
+	border-right: 1px solid #e5e5e5
 .dd-pointer-down
 	border-top: solid 5px #a8a8a8!important
 .dd-container
@@ -777,6 +845,15 @@ img
 		transform: translateY(0)
 .goTop
 	animation-name: goTop
+@keyframes goTop2
+	0%
+		opacity: 0
+		transform: translateY(100px)
+	100%
+		opacity: 1
+		transform: translateY(0)
+.goTop2
+	animation-name: goTop2
 @keyframes goFadeTop
 	0%
 		opacity: 0
@@ -797,9 +874,9 @@ img
 		height: 100%
 .heightGo
 	animation-name: heightGo
-#fullpage
-	height: 100vh!important
-#fullpage section
+//#fullpage
+//	height: 100vh!important
+#fullpage section, #fullpage2 section
 	position: fixed
 	left: 0
 	top: 0
@@ -847,27 +924,12 @@ img
 .scaleSlide
 	animation-name: scaleSlide
 	transform-origin: left center
-//.main-slider .slick-track
-//	width: 100%!important
-//	transform: none!important
-//	position: relative
-//.main-slider .slick-list
-//	overflow: visible
-//.main-slider-item
-//	position: absolute
-//	left: 0
-//	top: 0
-//	width: 100%
-//.main-fourth-right .showRight
-//	overflow: visible
 .main-slider .slick-slide
-	//transform: translateX(100%)
 	transform: scale(1.2)
 	transition: all .5s ease-in-out
 	transform-origin: left center
 .main-slider .slick-active
 	transform: scale(1)
-	//transform: translateX(0)
 .slick-slide
 	outline: none
 .list
@@ -885,7 +947,10 @@ img
 			height: 100%
 			bottom: 0
 			left: 0
+			z-index: 6
 			background: rgba(43, 56, 71, 0.1)
+			&_white
+				background: rgba(255, 255, 255, 0.2)
 	&-flex
 		display: flex
 		justify-content: space-between
@@ -901,6 +966,7 @@ img
 		font-family: Arial
 		font-size: 40px
 		font-weight: 700
+		line-height: 1
 		&_white
 			color: #ffffff
 	&-text
@@ -908,7 +974,7 @@ img
 		font-family: "SegoeUI"
 		font-size: 16px
 		font-weight: 400
-		line-height: 19.93px
+		line-height: 1.5
 		margin-top: 10px
 		&_white
 			color: #ffffff
@@ -970,7 +1036,7 @@ img
 		padding: 0 0 20px
 		&-item
 			width: 100%
-			padding: 0 20px
+			//padding: 0 20px
 			text-align: center
 			border-right: 1px solid #e0e2e4
 			&:last-child
@@ -1034,6 +1100,7 @@ img
 		width: 615px
 		margin-top: -40px
 		position: relative
+		flex-shrink: 0
 		&-block
 			position: absolute
 			top: 0
@@ -1227,12 +1294,18 @@ img
 	text-align: center
 	line-height: 30px
 	top: 50%
-	transform: translateY(-50%)
+	transform: translate(-18px, -50%)
+.ui-slider
+	margin-left: 18px
 .header.active, .menu.active
 	.wow
 		visibility: visible!important
 .step2, .step3
 	display: none
+//.gallery-main.step2, .gallery-main.step3
+//		opacity: 0
+//		pointer-events: none
+//		display: none
 .progress_list
 	width: 0
 	transition: width .5s ease
@@ -1243,7 +1316,8 @@ img
 		justify-content: flex-start
 		position: absolute
 		left: 23vw
-		bottom: 75px
+		bottom: 55px
+		z-index: 2
 		&-img
 			width: 106px
 			margin: 3px 0 0 3px
@@ -1251,10 +1325,13 @@ img
 			color: rgba(159, 166, 174, 0.8)
 			font-family: "SegoeUISemiBold"
 			font-size: 14px
+			&_white
+				color: #ffffff
 .house
-	padding: 180px 0 0 23vw
-	max-width: calc(1100px + 23vw)
-	min-height: 100vh
+	&-block
+		padding: 180px 0 0 23vw
+		max-width: calc(1100px + 23vw)
+		min-height: 100vh
 	&-top
 		display: flex
 		justify-content: space-between
@@ -1299,6 +1376,7 @@ img
 			position: absolute
 			left: 10px
 			bottom: 60px
+			pointer-events: none
 		&-left, &-right
 			width: 50px
 			display: flex
@@ -1378,4 +1456,883 @@ img
 	min-height: 100vh
 	padding: 180px 60px 0 23vw
 	background: #58bae7
+	&-flex
+		display: flex
+		justify-content: space-between
+	&-block
+		margin: 40px 0 0 -75px
+		position: relative
+	&-plan
+		position: absolute
+		width: 133px
+		left: 75px
+		bottom: 135px
+		border-radius: 4px
+		cursor: pointer
+	&-right
+		width: 485px
+		display: flex
+		flex-direction: column
+		align-items: flex-end
+		justify-content: flex-start
+		flex-shrink: 0
+		&-text
+			color: #ffffff
+			font-size: 16px
+			line-height: 19.93px
+			text-align: right
+			margin-top: 35px
+		&-span
+			display: inline-block
+	&-info
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+		width: 280px
+		&-number
+			color: #ffffff
+			font-family: Arial
+			font-size: 40px
+			font-weight: 700
+			min-width: 48px
+			padding-bottom: 5px
+			margin-bottom: 7px
+			border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+		&-small
+			font-size: 18px
+		&-index
+			font-size: 10px
+			position: relative
+			top: -5px
+		&-percent
+			font-size: 20px
+			position: relative
+			top: -15px
+		&-text
+			color: #ffffff
+			font-size: 16px
+			line-height: 12px
+	&-list
+		width: 100%
+		margin: 45px 0 40px
+	&-item
+		display: flex
+		justify-content: space-between
+		align-items: flex-end
+		padding: 12px 0
+	&-name
+		font-family: "SegoeUISemiBold"
+		font-size: 16px
+		color: #ffffff
+		flex-shrink: 0
+		display: inline-block
+	&-value
+		color: #ffffff
+		font-family: "SegoeUIBold"
+		font-size: 16px
+		flex-shrink: 0
+		&-index
+			font-size: 10px
+			position: relative
+			top: -5px
+	&-dots
+		width: 100%
+		border-bottom: 1px dotted #468fb0
+		margin: 0 20px 0 5px
+		position: relative
+		top: -3px
+.menu-bottom.absolute .menu-text_white
+	color: #ffffff
+.menu-bottom_white.absolute .color4
+	fill: #c5e7f7
+.apartment
+	&-popup
+		max-width: 570px
+		width: calc(100% - 40px)
+		height: 570px
+		position: fixed
+		display: flex
+		align-items: center
+		justify-content: center
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		background: #ffffff
+		box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25)
+		border-radius: 4px
+		z-index: 10
+		opacity: 0
+		pointer-events: none
+		transition: opacity .5s ease
+		&.active
+			opacity: 1
+			pointer-events: auto
+		&-img
+			width: 235px
+	&-close
+		width: 16px
+		height: 16px
+		cursor: pointer
+		position: absolute
+		top: 30px
+		right: 30px
+.house__area
+	fill-opacity: 0
+.house__number
+	pointer-events: none
+.house__number--circle
+	fill: #58bae7
+	stroke: rgba(88, 186, 231, 0.4)
+	stroke-width: 20px
+.house[data-status-color="green"] .house__area--section, .house[data-status-color="green"] .house__area
+	fill: #9fdaf7
+	fill-opacity: 0
+.house__number--text
+	fill: #ffffff
+	font-family: "SegoeUIBold"
+	font-size: 26px
+	text-transform: uppercase
+	text-align: center
+	text-anchor: middle
+.block-3d__house
+	cursor: pointer
+.house[data-status-color="grey"] .house__area
+	fill: grey
+.block-3d__house:hover .house__area
+	fill-opacity: .5
+.main-second-svg .house__area--section:hover
+	fill-opacity: .8
+.house[data-status-color="orange"] .house__area
+	fill: #f60
+.house__number-hide .house__number--circle
+	stroke-width: 0
+.menu_white
+	background: #ffffff
+.header_mob
+	display: none
+
+.burger
+	width: 60px
+	height: 60px
+	cursor: pointer
+	z-index: 20
+	padding: 10px
+	background: transparent
+	position: fixed
+	top: 17px
+	right: 20px
+	transition: all .5s ease
+	border-radius: 4px
+	&.white
+		background: #ffffff
+		box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1)
+		.burger-span
+			background: #446183
+	&-span
+		width: 20px
+		height: 2px
+		background: #ffffff
+		position: absolute
+		left: 50%
+		transform: translateX(-50%)
+		transition: all .5s ease
+		&_top
+			top: calc(50% - 6px)
+		&_center
+			top: 50%
+			transform: translate(-50%, -50%)
+		&_bottom
+			bottom: calc(50% - 6px)
+.footer
+	display: none
+	&-flex
+		display: flex
+		align-items: center
+		justify-content: flex-start
+	&-left
+		margin-right: 30px
+	&-right
+		&-text
+			color: #9fa6ae
+			font-family: "SegoeUISemiBold"
+			font-size: 14px
+			margin-bottom: 10px
+.active .burger-span_top
+	transform: translate(-50%, 5px) rotate(-225deg)
+.active .burger-span_bottom
+	transform: translate(-50%, -5px) rotate(225deg)
+.active .burger-span_center
+	opacity: 0
+.header-menu-info
+	margin-top: 20px
+.cart
+	//width: 230px
+	position: absolute
+	background: #ffffff
+	box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25)
+	border-radius: 4px
+	padding: 25px
+	transform: translate(40%, -40%)
+	z-index: 5
+	opacity: 0
+	pointer-events: none
+	&.active
+		opacity: 1
+	&-top
+		display: flex
+		justify-content: flex-start
+		align-items: center
+		&-left
+			margin-right: 35px
+		&-right
+			color: #cacfd6
+			font-family: Arial
+			font-size: 38px
+			font-weight: 700
+			text-transform: uppercase
+	&-info
+		color: #ec6400
+		font-family: "SegoeUISemiBold"
+		font-size: 12px
+		text-transform: uppercase
+	&-street
+		color: #2b3847
+		font-family: "SegoeUISemiBold"
+		font-size: 14px
+		line-height: 23.91px
+	&-bottom
+		display: flex
+		justify-content: space-between
+		margin-top: 10px
+		padding-top: 15px
+		border-top: 1px solid #ebeced
+		&-left
+			border-right: 1px solid #e0e2e4
+			width: 50%
+		&-right
+			padding-left: 30px
+			width: 50%
+		&-text
+			color: #ec6400
+			font-family: "SegoeUISemiBold"
+			font-size: 12px
+			line-height: 11.96px
+			text-transform: uppercase
+			&_grey
+				color: #b0b4b9
+		&-number
+			color: #ec6400
+			font-family: Arial
+			font-size: 32px
+			font-weight: 700
+			line-height: 23.91px
+			text-transform: uppercase
+			margin-top: 15px
+			&_sale
+				color: #b0b4b9
+	&-special
+		color: #ec6400
+.house__number_opacity
+  fill-opacity: 0!important
+.header.active
+  .header-right-btn:hover
+    color: #ffffff
+.main-second-static
+  position: relative
+.content
+	font-weight: bold
+.left-list-img
+	width: 20px
+	height: 17px
+.left-list-btn
+	position: absolute
+	right: -10px
+	top: 0
+	padding: 10px
+	display: none
+.filter-close
+	display: none
+	position: fixed
+	right: 30px
+	top: 30px
+	padding: 10px
+.house-floor_gorizontal
+	display: none
+	width: 100%
+.house-top-right_mob
+	display: none
+.house-top-left
+	margin-right: 20px
+.about
+	position: relative
+	&-overlay
+		width: 100%
+		height: 100%
+		position: absolute
+		top: 0
+		left: 0
+		background: #1d80b7
+		z-index: -1
+	&-right
+		width: 500px
+		margin-left: 20px
+	&-build
+		position: absolute
+		bottom: 0
+		left: 0
+		z-index: -1
+		width: 100%
+		img
+			width: 100%
+	&-flex
+		width: 100%
+		max-width: 1100px
+		display: flex
+		justify-content: space-between
+	&-title
+		color: #ffffff
+		font-family: Arial
+		font-size: 40px
+		font-weight: 700
+	&-description
+		color: rgba(255, 255, 255, 0.5)
+		font-size: 18px
+	&-left
+		position: relative
+	&-text
+		color: #ffffff
+		font-size: 16px
+		line-height: 23.91px
+		&-span
+			display: inline-block
+.consist-subtitle-span
+	display: inline-block
+.consist
+	background: #ffffff
+	height: 100vh!important
+	overflow: auto
+	.fp-tableCell
+		height: 100vh!important
+	&-content
+		padding: 120px 0 0 23vw
+	&-flex
+		display: flex
+		justify-content: space-between
+		width: 100%
+		max-width: 1100px
+	&-left
+		width: 500px
+		position: relative
+	&-right
+		width: 500px
+		margin-top: -30px
+	&-subtitle
+		text-transform: none
+	&-item
+		color: #474e56
+		font-family: "SegoeUISemiBold"
+		font-size: 16px
+		padding: 0 0 30px 55px
+		line-height: 17.93px
+		background: url(../img/checked.svg) no-repeat left top
+		background-size: 14px 12px
+		&:last-child
+			padding-bottom: 0
+	&-list
+		margin-top: 30px
+	&-text
+		color: #474e56
+		font-size: 16px
+		line-height: 23.91px
+		margin-top: 30px
+	&-slider
+		margin-top: 100px
+		width: calc(100% + 70px)
+		margin-left: -70px
+	&-row
+		display: flex
+		align-items: center
+		justify-content: space-between
+		max-width: 1100px
+		margin-top: 30px
+	&-numbers
+		margin-left: 20px
+		width: 50px
+		display: flex
+		align-items: center
+		justify-content: space-between
+		&-slider
+			font-family: Arial
+			font-size: 16px
+			font-weight: 700
+			color: #989da3
+			margin-right: 5px
+		&-all
+			font-family: Arial
+			font-size: 16px
+			font-weight: 700
+			color: #b2b8bf
+			white-space: nowrap
+.subtitle-static
+	color: #2b3847
+	font-family: Arial
+	font-size: 40px
+	font-weight: 700
+.group
+	padding: 100px 0 150px 23vw
+	position: relative
+	&-flex
+		display: flex
+		justify-content: flex-start
+	&-left
+		max-width: 500px
+		margin-right: 110px
+	&-text
+		color: #474e56
+		font-size: 16px
+		line-height: 23.91px
+		margin-top: 30px
+		&-span
+			display: inline-block
+	&-row
+		display: flex
+		align-items: center
+		justify-content: flex-start
+		margin-top: 80px
+	&-item
+		margin-right: 60px
+		opacity: .5
+		transition: opacity .5s ease
+		&:hover
+			opacity: 1
+		&:last-child
+			margin-right: 0
+	&-img
+		opacity: .5
+		filter: grayscale(100%)
+	&-right
+		padding-top: 50px
+.gallery
+	padding: 180px 0 135px 23vw
+	min-height: 100vh
+	position: relative
+	&-content
+		max-width: 1100px
+	&-subtitle
+		color: #2b3847
+		font-family: Arial
+		font-size: 40px
+		font-weight: 700
+	&-top
+		display: flex
+		align-items: center
+		justify-content: space-between
+	&-filter
+		&-link
+			color: #636a73
+			font-family: "SegoeUIBold"
+			font-size: 13px
+			text-transform: uppercase
+			letter-spacing: 2.59px
+			text-decoration: none
+			padding: 0 15px
+			border-right: 1px solid rgba(0, 0, 0, 0.1)
+			transition: color .5s ease
+			display: inline-block
+			&:hover, &.active
+				color: #ea641e
+			&:last-child
+				border-right: none
+				padding-right: 0
+	&-item
+		width: calc(25% - 7.5px)
+		margin-bottom: 10px
+		overflow: hidden
+		&:before
+			content: ''
+			position: absolute
+			width: 100%
+			height: 100%
+			top: 0
+			left: 0
+			opacity: 0
+			background: rgba(34, 34, 34, 0.4)
+			transition: opacity .5s ease
+			z-index: 1
+		&:after
+			content: ''
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			opacity: 0
+			border-radius: 50%
+			width: 50px
+			height: 50px
+			background: rgba(43, 56, 71, 0.9) url(../img/zoom.svg) no-repeat center
+			background-size: 20px 20px
+			transition: all .5s ease
+			z-index: 2
+		&:hover
+			&:before, &:after
+				opacity: 1
+			.gallery-img
+				transform: scale(1.1)
+	&-ilter
+		margin-top: 10px
+	&-main
+		width: calc(100% + 70px)
+		margin: 60px 0 50px -70px
+.gallery-img
+	transition: transform .5s ease
+.fancybox-button svg
+	display: none
+.fancybox-navigation .fancybox-button--arrow_left
+	padding-left: 0
+	left: 60px
+.fancybox-navigation .fancybox-button div
+	width: 50px
+	height: 50px
+	border-radius: 50%
+	background: #2b3847 url(../img/arrow-back.svg) no-repeat center
+	background-size: 7px 10px
+.fancybox-navigation .fancybox-button--arrow_right
+	padding-right: 0
+	right: 50px
+.fancybox-button
+	background: transparent
+.fancybox-navigation .fancybox-button--arrow_right div
+	transform: rotate(180deg)
+.fancybox-button--close
+	background: #2b3847 url(../img/close.svg) no-repeat center
+	background-size: 7px 7px
+	border-radius: 50%
+	top: 50px
+	right: 50px
+@keyframes slideGo
+	from
+		opacity: 0
+		transform: scale(0.8)
+	to
+		opacity: 1
+		transform: scale(1)
+.slideGo
+	animation-name: slideGo
+	transform-origin: right center
+.gallery-item_video:after
+	background: #58bae7 url(../img/play.svg) no-repeat center
+	background-size: 11px 11px
+	opacity: 1
+.gallery-item_video:hover:after
+	background-color: #EA641E
+.structure
+	&-overlay
+		background: #090e11
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		z-index: -2
+		&_green
+			background: #4cab3d
+		&_yellow
+			background: #fed430
+		&_grey
+			background: #e0e1e3 url(../img/ellipse.png) no-repeat top left
+		&_fiolet
+			background: #4c5f95
+	&-build
+		position: absolute
+		height: 100vh
+		top: 0
+		right: 0
+		z-index: -1
+		display: flex
+		align-items: flex-end
+		&-img
+			height: 100vh
+			width: auto
+			&_autoheight
+				height: auto
+	&-title
+		color: #ffffff
+		font-family: Arial
+		font-size: 40px
+		font-weight: 700
+		&_dark
+			color: #2b3847
+	&-description
+		color: rgba(255, 255, 255, 0.5)
+		font-size: 18px
+		margin-top: 5px
+		&_dark
+			color: rgba(43, 56, 71, 0.51)
+		&_grey
+			color: #868f99
+	&-text
+		color: #ffffff
+		font-size: 16px
+		line-height: 23.91px
+		max-width: 500px
+		margin: 30px 0 45px
+		&_dark
+			color: #2b3847
+		&-span
+			display: inline-block
+
+
+.info
+	background: #ffffff
+	&-content
+		padding: 100px 0 150px 23vw
+		&-flex
+			justify-content: space-between
+			align-items: flex-start
+			display: flex
+			max-width: 1100px
+
+
+	&-left
+		width: 500px
+	&-right
+		width: 500px
+		margin-left: 40px
+	&-text
+		color: #474e56
+		font-size: 16px
+		line-height: 23.91px
+		margin-bottom: 30px
+		&:last-child
+			margin-bottom: 0
+	&-title
+		color: #2b3847
+		font-family: Arial
+		font-size: 40px
+		font-weight: 700
+		line-height: 39.85px
+		max-width: 500px
+		margin-bottom: 30px
+		&-span
+			display: inline-block
+	&-item
+		padding-left: 50px
+		margin-bottom: 30px
+		background: url(../img/checked.svg) no-repeat left top
+		background-size: 14px 12px
+		color: #474e56
+		font-family: "SegoeUISemiBold"
+		font-size: 16px
+		line-height: 23.91px
+		&_sm
+			margin-bottom: 20px
+.consist-slider .slick-slide
+	transform: scale(1.2)
+	transform-origin: left center
+	transition: all .5s ease
+	img
+		width: 100%
+.consist-slider .slick-active
+	transform: scale(1)
+.dark-menu
+	.header-left-text, .header-left-phone, .lang-link, .header-right-btn, .menu-item-link, .menu-text
+		color: #2b3847
+	.color
+		fill: #2b3847
+	.lang-link.active
+		color: rgba(43, 56, 71, 0.5)
+	.lang-line
+		background: rgba(43, 56, 71, 0.2)
+	.header-right-btn
+		border-color: rgba(43, 56, 71, 0.5)
+.greey-theme
+	.header
+		background: transparent
+.infrastructure
+	background: #fafbfc
+	&-content
+		max-width: 61vw
+	&-main
+		display: flex
+		width: 100%
+		margin: 60px 0 0 -70px
+		justify-content: flex-start
+		flex-wrap: wrap
+	&-item
+		width: calc(33.33% - 20px)
+		background: #ffffff
+		margin-right: 30px
+		margin-bottom: 30px
+		overflow: hidden
+		border-radius: 4px
+		box-shadow: 0 17px 38px transparent
+		transition: all .5s ease
+		text-align: center
+		text-decoration: none
+		&-block
+			padding: 35px 20px 40px
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+			align-items: center
+			height: 160px
+		&:hover
+			box-shadow: 0 17px 38px rgba(0, 0, 0, 0.16)
+			.news-title
+				color: #58bae7
+			.st0
+				fill: #ea641e
+		&:nth-child(3n + 3)
+			margin-right: 0
+	&-bg
+		width: 100%
+		height: 100px
+		display: block
+		&_first
+			background: url(../img/item-flame.jpg) no-repeat center
+			background-size: cover
+		&_second
+			background: url(../img/item-eurogum.jpg) no-repeat center
+			background-size: cover
+		&_third
+			background: url(../img/item-yellow.jpg) no-repeat center
+			background-size: cover
+		&_fourth
+			background: url(../img/item-primadent.jpg) no-repeat center
+			background-size: cover
+		&_fifth
+			background: url(../img/item-stcurity.jpg) no-repeat center
+			background-size: cover
+		&_sixth
+			background: url(../img/item-services.jpg) no-repeat center
+			background-size: cover
+	&-title
+		color: #868f99
+		font-family: "SegoeUISemiBold"
+		font-size: 14px
+	&-map
+		width: calc(100% + 23vw)
+		margin-left: -23vw
+		height: 940px
+.news
+	background: #fafbfc
+	&-img
+		display: block
+		img
+			width: 100%
+	&-item
+		&-block
+			display: block
+			text-align: left
+			padding: 30px
+		&-top
+			color: #464b50
+			font-family: Arial
+			font-size: 14px
+			font-weight: 700
+		&-label
+			color: #868f99
+			padding-left: 10px
+	&-title
+		color: #2b3847
+		font-family: Arial
+		font-size: 24px
+		font-weight: 700
+		line-height: 27.9px
+		margin-top: 10px
+		transition: color.5s ease
+.list-bottom_news
+	margin-top: 30px
+	padding-right: 140px
+.news .gallery-top
+	padding-right: 70px
+.post
+	&-info
+		display: flex
+		align-items: center
+		justify-content: flex-start
+		margin-top: 15px
+		&-date
+			color: #464b50
+			font-family: Arial
+			font-size: 16px
+			font-weight: 700
+		&-label
+			color: #868f99
+			font-size: 16px
+			padding-left: 15px
+	&-content
+		max-width: 61vw
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+		margin-top: 50px
+		&-left
+			width: 100%
+			margin-right: 100px
+		&-right
+			width: 370px
+			flex-shrink: 0
+			display: flex
+			flex-direction: column-reverse
+		&-link
+			display: block
+			text-decoration: none
+			background: #ffffff
+			border-radius: 4px
+			margin-bottom: 15px
+			box-shadow: 0 17px 38px transparent
+			transition: all .5s ease
+			position: relative
+			&:hover
+				box-shadow: 0 17px 38px rgba(0, 0, 0, 0.16)
+				.news-title
+					color: #58bae7
+	&-text
+		color: #474e56
+		font-size: 18px
+		line-height: 29.89px
+		margin-bottom: 30px
+		&:last-child
+			margin-bottom: 0
+	&-overflow
+		max-width: calc(100% + 70px)
+		margin: 60px 0 50px -70px
+		overflow: hidden
+	&-img
+		width: 100%
+.consist-slider_post
+	margin-top: 60px
+.error
+	height: 100vh
+	overflow: hidden
+	&-page
+		.menu-nav, .menu-content-line
+			display: none
+		.build-second
+			background-position: bottom -120px left -85%
+	&-number
+		font-family: Arial
+		font-weight: bold
+		color: rgba(255, 255, 255, 0.5)
+		font-size: 199px
+	&-block
+		position: absolute
+		top: 45%
+		transform: translateY(-50%)
+		right: 20vw
+	&-text
+		color: rgba(255, 255, 255, 0.5)
+		font-family: "SegoeUISemiBold"
+		font-size: 14px
+		line-height: 23.91px
+		text-align: right
+	&-link
+		color: rgba(255, 255, 255, 0.5)
+		font-family: "SegoeUISemiBold"
+		font-size: 14px
+		line-height: 23.91px
+		text-align: right
+.st0
+	transition: fill .5s ease
 @import "media" // Всегда в конце

@@ -5,8 +5,7 @@
 	<meta charset="utf-8">
 	<title>Evromisto</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+    <meta name="viewport" content="width=480; maximum-scale=1.0"/>
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="css/libs.min.css">
 	<link rel="stylesheet" href="css/main.css">
@@ -16,11 +15,12 @@
 <body>
 
 	@import "header-active.html"
+    @import "header-mob.html"
 	@import "menu-active.html"
     <div class="list-line">
         <div class="list-line-content wow heightGo"></div>
     </div>
-    <section class="section house">
+    <section class="section house-block">
         <div class="house-top">
             <div class="house-top-left">
                 <h2 class="list-title wow fadeInUp" data-wow-delay="0.3s">Выбрать квартиру</h2>
@@ -57,7 +57,25 @@
                         </g>
                     </svg>
                 </div>
-                <div class="house-floor">
+                <div class="house-floor house-floor_vertical">
+                    <div class="house-floor-item">
+                        <div class="house-floor-number">01</div>
+                        <div class="house-floor-text">этаж</div>
+                    </div>
+                    <div class="house-floor-item">
+                        <div class="house-floor-number">02</div>
+                        <div class="house-floor-text">этаж</div>
+                    </div>
+                    <div class="house-floor-item">
+                        <div class="house-floor-number">03</div>
+                        <div class="house-floor-text">этаж</div>
+                    </div>
+                    <div class="house-floor-item">
+                        <div class="house-floor-number">04</div>
+                        <div class="house-floor-text">этаж</div>
+                    </div>
+                </div>
+                <div class="house-floor house-floor_gorizontal">
                     <div class="house-floor-item">
                         <div class="house-floor-number">01</div>
                         <div class="house-floor-text">этаж</div>
@@ -91,6 +109,18 @@
                                 </g>
                             </svg>
                 </div>
+            </div>
+            <div class="house-top-right house-top-right_mob">
+                <div class="house-top-item house-top-item_first">1</div>
+                <div class="house-top-item house-top-item_second">2</div>
+                <div class="house-top-item house-top-item_third">3</div>
+                <div class="house-top-item house-top-item_fourth">4</div>
+                <svg class="house-top-svg" xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 231 63" style="enable-background:new 0 0 231 63;" xml:space="preserve">
+                    <path class="house-top-section" d="M8.5,48.9v13.2h27.3v-9.8h9.8v-9.8h14.8V3.4H45.5L43,7.6H19.3c-2.7-1.9-4.6-2.8-5.6-2.8S10.1,7,6.2,11.4v3.9  l2.3,2.2v11.2H0.7v9.7h2.8v10.5H8.5z"/>
+                    <polygon class="house-top-section" points="61.3,42.4 64,42.4 64,47.6 67.8,47.6 67.8,52.7 75.7,52.7 75.7,49.6 83.8,49.6 83.8,47.5 88.6,47.5   88.6,45.2 99.2,45.2 99.2,49.6 107.8,49.6 107.8,52.7 116.2,52.7 118.5,49.6 118.5,7.5 110.2,7.5 107.8,3.4 100.7,3.4 100.7,0.4   83.8,0.4 83.8,3.4 75.7,3.4 72.4,7.5 66.2,7.5 64,3.4 61.3,3.4 "/>
+                    <polygon class="house-top-section" points="119.5,49.9 122.5,52.7 131.4,52.7 131.4,49.9 139.7,49.9 139.7,45.3 150.5,45.3 150.5,47.7 155.2,47.7   155.2,49.9 163.3,49.9 163.3,52.7 174.9,52.7 174.9,7 167.5,7 165.2,3.4 157.5,3.4 157.5,0.4 139.7,0.4 139.7,3.4 131.4,3.4   128.9,7 119.5,7 "/>
+                    <polygon class="house-top-section" points="175.9,52.7 179.6,52.7 179.6,55.5 186.7,55.5 186.7,52.7 194.5,52.7 194.5,51.1 200.3,51.1 200.3,48.9   212,48.9 212,52.7 221.2,52.7 221.2,55.5 228.2,55.5 230.6,52.7 230.6,8.4 219.2,8.4 216.9,2.4 212,2.4 212,0.7 191.4,0.7   191.4,2.4 185.1,2.4 182.7,6.7 175.9,6.7 "/>
+                </svg>
             </div>
             <div class="house-main-center wow goFadeTop" data-wow-delay="0.7s" data-wow-duration="2s">
                 <div class="house-slider">
@@ -222,24 +252,28 @@
             </div>
             <img src="img/compass.svg" alt="" class="house-main-compass wow fadeInUp" data-wow-delay="0.9s">
         </div>
+        <div class="footer-logo wow fadeInUp" data-wow-delay="1.3s">
+            <div class="footer-logo-text">Разработка и поддержка</div>
+            <a href="">
+                <img src="img/future.svg" alt="" class="footer-logo-img">
+            </a>
+        </div>
     </section>
-    <div class="footer-logo wow fadeInUp" data-wow-delay="1.3s">
-        <div class="footer-logo-text">Разработка и поддержка</div>
-        <a href="">
-            <img src="img/future.svg" alt="" class="footer-logo-img">
-        </a>
-    </div>
     <div class="popup">
         <div class="popup-container">
             <form action="" class="popup-form">
                 <h2 class="popup-title">Заказать звонок</h2>
                 <p class="popup-text">Введите ваш номер телефона и мы свяжемся за<br> 30 секунд!</p>
+
                 <div class="popup-form-row">
-                    <select id="options" class="popup-select">
-                        <option value="+38" class="front-form-option" data-imagesrc="img/ua.svg"></option>
-                        <option value="+7" class="front-form-option" data-imagesrc="img/ru.svg"></option>
-                    </select>
-                    <input type="phone" class="popup-input" placeholder="067 890 90 99" required>
+                    <!--<select id="options" class="popup-select">-->
+                    <!--<option value="+38" class="front-form-option" data-imagesrc="img/ua.svg"></option>-->
+                    <!--&lt;!&ndash;<option value="+7" class="front-form-option" data-imagesrc="img/ru.svg"></option>&ndash;&gt;-->
+                    <!--</select>-->
+                    <div class="popup-select">
+                        <a class="dd-selected"><img class="dd-selected-image" src="img/ua.svg"></a>
+                    </div>
+                    <input type="tel" class="popup-input" placeholder="067 890 90 99" required>
                 </div>
                 <button type="submit" class="popup-btn btn btn_active">жду звонка !</button>
             </form>
@@ -264,7 +298,7 @@
             </svg>
         </div>
     </div>
-
+    @import "footer.html"
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/libs.min.js"></script>

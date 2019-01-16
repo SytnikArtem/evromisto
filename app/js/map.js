@@ -10,12 +10,13 @@ var markersData = [
 // координаты центров городов
 var centerMaps = [
   {
-    latX: 50.378728,
-    latY: 30.371825
+    latX: 50.377257,
+    latY: 30.379448
   }
 ]
-var map, latLng, url, name, mark, marker, thisCenter;
+var map, latLng, url, name, mark, marker, thisCenter, popupContent;
 function initMap() {
+  popupContent = '<p class="content">ЖК Европейське місто</p>'
   thisCenterX = centerMaps[0].latX;
   thisCenterY = centerMaps[0].latY;
   var centerLatLng = new google.maps.LatLng(thisCenterX, thisCenterY);
@@ -240,6 +241,9 @@ function initMap() {
     number = markersData[i].number;
     addMarker(latLng, name, url, number);
   }
+  infowindow = new google.maps.InfoWindow({
+    content: popupContent
+  });
 
   // Автоматически масштабируем карту так, чтобы все маркеры были в видимой области карты
   // map.fitBounds(bounds);
@@ -248,6 +252,10 @@ function initMap() {
     this.getPanes().markerLayer.id='markerLayer';
   };
   myoverlay.setMap(map);
+  infowindow.open(map, marker);
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
 
 }
 google.maps.event.addDomListener(window, "load", initMap);
