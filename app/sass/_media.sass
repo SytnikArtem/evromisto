@@ -20,7 +20,13 @@
   .house-block
     max-width: calc(1000px + 23vw)
   .house-main-center
-    max-width: 980px
+    margin-right: -40px
+  .infrastructure-content
+    max-width: 100%
+  .news .gallery-top
+    padding-right: 40px
+  .infrastructure-main
+    margin-left: -40px
 @media only screen and (max-width : 1439px)
   .menu-item-link
     padding-left: 20px
@@ -119,16 +125,37 @@
     top: 56px
     left: 120px
   .house-main-center
-    max-width: 700px
     margin-right: 0
   .house-block
     padding-right: 20px
   .house-main-compass
     bottom: 10px
-  .house-main-center
-    margin-top: -100px
   .apartment-right
     width: 400px
+  .group-item
+    margin-right: 40px
+  .gallery-content
+    max-width: 100%
+  .gallery-main
+    width: calc(100% + 50px)
+    margin: 40px 0 50px -50px
+  .news .gallery-top
+    padding-right: 0
+  .infrastructure-main
+    margin-left: 0
+  .news-item-block
+    padding: 20px
+  .list-bottom_news
+    padding-right: 0
+  .news-item-top
+    font-size: 12px
+  .news-title
+    font-size: 18
+  .post-content
+    max-width: 100%
+  .structure-build-img_primadent
+    max-width: 600px
+    height: auto
 @media only screen and (max-width : 1200px)
   .menu-item-link
     font-size: 11px
@@ -167,18 +194,44 @@
     width: 100%
   .equipment-right
     margin: 40px 0 0
-  .house-main-center
-    max-width: 660px
   .apartment-right
     width: 290px
+  .about-title, .subtitle-static
+    font-size: 32px
+  .main-fourth-description
+    font-size: 15px
+  .group-flex
+    justify-content: space-between
+  .group-left
+    margin-right: 0
+  .group-item
+    margin-right: 15px
+  .structure-build
+    display: flex
+    align-items: flex-end
+    justify-content: flex-end
+  .structure-build-img
+    max-width: 630px
+    width: auto
+    height: auto
+  .structure-build-img_flame
+    max-width: 100%
+    height: 100vh
+  .structure-build-img_security
+    width: 560px
+  .structure-build-img_service
+    margin-right: -150px
+  .structure-build-img_primadent
+    max-width: 500px
+    margin-right: -100px
 @media only screen and (max-width : 1024px)
-  #fullpage section
+  #fullpage section, #fullpage2 section
     position: relative
     transform: none
   .main-second-svg
     bottom: 0
   .main-second-relative
-    width: 1024px
+    width: 1560px
     position: relative
   .main-fourth-row
     padding-right: 0
@@ -190,7 +243,7 @@
   .menu
     display: none
   .main-first .main-first-content
-    padding: 115px 40px 40px
+    padding: 135px 40px 40px
     min-height: 100vh
   .main-first-content
     min-height: auto
@@ -205,7 +258,7 @@
     padding: 0 40px
     margin: 0
   .menu-logo
-    margin: 10px 20px 0 0
+    margin: 50px 20px 0 0
   .main-second-build
     position: relative
     width: calc(100% + 80px)
@@ -328,7 +381,7 @@
     right: 80px
     transform: none
     top: 35px
-    left: inherit
+    left: auto
   .list-img
     max-width: 270px
     margin: 0 auto
@@ -340,7 +393,7 @@
   .list-row-text
     font-size: 24px
   .list-row-item
-    padding: 0 20px
+    padding: 0 5px
   .list-bottom
     margin-top: 30px
   .house-block
@@ -352,6 +405,105 @@
   .apartment
     padding: 155px 40px 40px
     min-height: calc(100vh - 92px)
+  .about .main-first-content
+    min-height: 100vh
+    padding: 150px 40px 40px
+  .consist-content
+    padding: 40px
+  .consist-slider
+    width: calc(100% + 80px)
+    margin-left: -40px
+    margin-top: 50px
+  .consist
+    height: auto!important
+  .group
+    padding: 40px
+  .group-row
+    flex-wrap: wrap
+    width: 660px
+    justify-content: space-between
+    margin-top: 40px
+  .group-item
+    margin-right: 60px
+    margin-top: 20px
+  .group-item:last-child
+    margin-right: 60px
+  .white-footer .footer
+    background: #ffffff
+  .footer-blue
+    background: #58bae7
+  .footer-blue .footer
+    background: transparent
+  .footer-blue .footer-right-text
+    color: #ffffff
+  .footer-blue .header-menu .footer-right-text
+    color: rgba(159, 166, 174, 0.8)
+  //.main-fifth-map
+  //  height: calc(100vh - 132px)
+  .contacts
+    padding-top: 100px
+    background: #fafbfc
+    min-height: calc(100vh - 92px)
+  .error-block
+    position: static
+    transform: none
+    text-align: right
+    padding: 130px 40px 40px
+  .error
+    height: calc(100vh - 92px)
+  .footer-blue .header-menu  .color4
+    fill: rgb(213, 218, 226)
+  .footer-blue .color4
+    fill: #ffffff
+  .gallery
+    padding: 150px 40px 40px
+    min-height: calc(100vh - 92px)
+  .gallery-main
+    width: 100%
+    margin: 50px 0 40px
+  .contacts .main-first-content_fifth
+    min-height: calc(100vh - 192px)
+  .fancybox-navigation .fancybox-button div
+    background-color: transparent
+  .fancybox-navigation .fancybox-button
+    top: calc(100% - 150px)
+  .fancybox-button--close
+    top: 30px
+    right: 30px
+  .gallery-filter-link
+    padding: 0 5px
+    font-size: 12px
+  .post-block
+    width: calc(100% + 80px)
+    margin-left: -40px
+  .post-content-left
+    margin-right: 30px
+  .structure
+    height: auto
+    .main-first-content
+      padding: 130px 40px 40px
+  .info-content
+    padding: 40px
+  .structure-text-span
+    display: inline
+  .structure-text
+    margin-top: 25px
+  .structure-build-img
+    margin-right: -100px
+  .structure-build
+    overflow: hidden
+  .structure-build-img_flame
+    height: auto
+  .structure-build-img_yellow
+    margin-right: -140px
+  .apartment-dots
+    margin: 0 5px
+  .consist-slider .slick-slide
+    height: 400px
+  .structure-text
+    max-width: 400px
+  .structure-build-img_service
+    margin-right: -150px
 @media only screen and (max-width : 767px)
   .header-left-text
     display: none
@@ -505,6 +657,7 @@
     left: 107px
   .house-main-center
     width: 100%
+    margin: 0 auto
   .house-top-right
     display: none
   .house-main-right
@@ -518,7 +671,7 @@
   .house-top-right_mob
     display: block
   .house-top-right_mob
-    margin: 0 auto
+    margin: 50px auto 0
   .house-main-left
     width: calc(100% + 50px)
     margin-left: -25px
@@ -547,21 +700,181 @@
   .apartment-flex
     flex-direction: column
   .apartment-block
-    margin-left: -60px
+    margin-left: -35px
     margin-top: 95px
   .apartment-right
     width: 100%
     align-items: flex-start
   .apartment-plan
-    left: 60px
-    bottom: -35px
+    left: 35px
+    bottom: -55px
   .apartment-right
-    margin-top: 80px
+    margin-top: 100px
   .apartment-list
     margin: 30px 0 25px
   .apartment-right-text
     text-align: left
     margin-top: 25px
+  .about-flex
+    flex-direction: column
+  .about-right
+    width: 100%
+    margin: 20px 0 0 0
+  .about-text-span
+    display: inline
+  .about
+    overflow: hidden
+  .about-build
+    width: 150%
+    left: -20%
+  .consist-flex
+    flex-direction: column
+  .consist-left
+    width: 100%
+    margin: 0
+  .consist-right
+    width: 100%
+    margin: 0
+  .group-flex
+    flex-direction: column
+  .group-text-span
+    display: inline
+  .group-row
+    width: 300px
+  .about-title, .subtitle-static
+    font-size: 40px
+  .about-description
+    margin-top: 10px
+  .about-build
+    width: 200%
+    left: -30%
+  .group-item:nth-child(2n + 2)
+    margin-right: 0
+  .group
+    padding-top: 0
+  .group-text
+    padding-top: 20px
+  .error .build-third
+    background-size: 275%
+    background-position: bottom -100px left -450px
+    &:before
+      content: ''
+      width: 100%
+      height: 170px
+      position: absolute
+      bottom: 0
+      left: 0
+      background-image: linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0) 100%)
+      opacity: 0.3
+  .gallery-item
+    width: calc(50% - 5px)
+    margin-bottom: 7px
+  .gallery-top
+    flex-direction: column
+    align-items: flex-start
+  .gallery-filter-link:first-child
+    padding-left: 0
+  .gallery-filter
+    margin-top: 20px
+  .gallery-filter-link
+    padding: 0 15px
+    font-size: 13px
+  .gallery-filter-row
+    width: 630px
+  .gallery-filter
+    width: calc(100% + 40px)
+    overflow: auto
+  .infrastructure-item
+    width: 100%
+    margin: 0 0 20px 0
+  .infrastructure-main
+    margin-top: 40px
+  .news-item-top
+    font-size: 14px
+  .news-item-block
+    padding: 30px
+  .news-title
+    font-size: 24px
+  .post-content
+    flex-direction: column
+  .post-overflow
+    width: calc(100% + 80px)
+    margin-left: -40px
+  .post-content-left
+    margin-right: 0
+  .post-content-right
+    width: 100%
+    margin-top: 30px
+  .consist-slider_post
+    margin-top: 40px
+  .post-content
+    margin-top: 30px
+  .post-overflow
+    margin-top: 80px
+  .info-content-flex
+    flex-direction: column
+  .info-left
+    width: 100%
+  .info-right
+    width: 100%
+    margin: 30px 0 0 0
+  .structure
+    padding-bottom: 300px
+  .structure-build-img
+    margin-right: -175px
+  .structure_flame
+    padding-bottom: 220px
+  .structure-build_flame
+    align-items: flex-start
+    top: 0
+    right: -25%
+  .consist-slider .slick-slide
+    height: 360px
+  .structure-build-img_flame
+    object-fit: cover
+    height: 100%
+    margin-right: 0
+  .structure
+    overflow: hidden
+  .structure-build-img_yellow
+    margin-right: -30px
+    max-width: 710px
+  .apartment-back
+    left: 35px
+    top: -70px
+  .structure-build-img_security
+    width: 530px
+    margin-right: -40px
+  .popup-close
+    top: 30px
+    right: 30px
+  .structure-build-img_service
+    margin-right: -120px
+    margin-bottom: -85px
+    max-width: 680px
+  .structure-text
+    max-width: 100%
+  .structure-build-img_primadent
+    width: 510px
+    margin-right: -75px
+  .post-overflow
+    height: 200px
+  .post-img
+    object-fit: cover
+  .main-fifth-block br
+    display: none
+  .main-fifth-bottom_custom .main-fifth-block:nth-child(2)
+    order: 0
+  .main-fifth-bottom
+    flex-direction: column
+  .main-fifth-map_custom
+    height: calc(100% - 380px)
+  .main-fifth-bottom_custom .main-fifth-block
+    width: 100%
+  .main-fifth-bottom_custom
+    margin-top: 550px
+  .house-main
+    margin-top: 40px
 //@media only screen and (max-width : 479px)
 //  .main-first-content
 //    padding: 20px

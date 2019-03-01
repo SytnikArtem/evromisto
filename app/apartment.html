@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body class="footer-blue no-white">
 
     <header class="header header_blue">
         <div class="header-row">
@@ -197,8 +197,15 @@
                 <h2 class="list-title list-title_white wow fadeInUp" data-wow-delay="0.3s">Квартира №68</h2>
                 <p class="list-text list-text_white wow fadeInUp" data-wow-delay="0.5s">Вул. Жулянська 2А,  план секції 3</p>
                 <div class="apartment-block">
+                    <a href="" class="apartment-back"></a>
+                    <div class="apartament-level">
+                        <a href="" class="apartament-level-btn active">1 уровень</a>
+                        <a href="" class="apartament-level-btn">2 уровень</a>
+                    </div>
                     <img src="img/flat.png" alt="" class="apartment-img wow goFadeTop" data-wow-duration="2s" data-wow-delay="0.5s">
+                    <img src="img/flat.png" alt="" class="apartment-img tabs-hide wow goFadeTop" data-wow-duration="2s" data-wow-delay="0.5s">
                     <img src="img/plan.jpg" alt="" class="apartment-plan wow fadeIn" data-wow-delay="2s">
+                    <img src="img/plan.jpg" alt="" class="apartment-plan apartment-plan_second wow fadeIn" data-wow-delay="2s">
                     <div class="apartment-popup">
                         <div class="apartment-close">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 14.5 14.9" style="enable-background:new 0 0 14.5 14.9;" xml:space="preserve">
@@ -214,24 +221,88 @@
             </div>
             <div class="apartment-right">
                 <div class="apartment-info">
-                    <div class="apartment-info-item">
-                        <div class="apartment-info-number wow fadeInUp" data-wow-delay="0.5s">2</div>
-                        <div class="apartment-info-text wow fadeInUp" data-wow-delay="0.6s">комнат</div>
-                    </div>
-                    <div class="apartment-info-item">
-                        <div class="apartment-info-number wow fadeInUp" data-wow-delay="0.6s">
-                            67<span class="apartment-info-small">м<span class="apartment-info-index">2</span></span>
+                    <div class="apartment-info-flex">
+                        <div class="apartment-info-item">
+                            <div class="apartment-info-number wow fadeInUp" data-wow-delay="0.5s">2</div>
+                            <div class="apartment-info-text wow fadeInUp" data-wow-delay="0.6s">комнат</div>
                         </div>
-                        <div class="apartment-info-text wow fadeInUp" data-wow-delay="0.7s">общая <br>площадь</div>
-                    </div>
-                    <div class="apartment-info-item">
-                        <div class="apartment-info-number wow fadeInUp" data-wow-delay="0.7s">
-                            100<span class="apartment-info-percent">%</span>
+                        <div class="apartment-info-item">
+                            <div class="apartment-info-number wow fadeInUp" data-wow-delay="0.6s">
+                                67<span class="apartment-info-small">м<span class="apartment-info-index">2</span></span>
+                            </div>
+                            <div class="apartment-info-text wow fadeInUp" data-wow-delay="0.7s">общая <br>площадь</div>
                         </div>
-                        <div class="apartment-info-text wow fadeInUp" data-wow-delay="0.8s">готовность</div>
+                        <div class="apartment-info-item">
+                            <div class="apartment-info-number wow fadeInUp" data-wow-delay="0.7s">
+                                100<span class="apartment-info-percent">%</span>
+                            </div>
+                            <div class="apartment-info-text wow fadeInUp" data-wow-delay="0.8s">готовность</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="apartment-info tabs-hide">
+                    <div class="apartment-info-flex">
+                        <div class="apartment-info-item">
+                            <div class="apartment-info-number wow fadeInUp" data-wow-delay="0.5s">3</div>
+                            <div class="apartment-info-text wow fadeInUp" data-wow-delay="0.6s">комнат</div>
+                        </div>
+                        <div class="apartment-info-item">
+                            <div class="apartment-info-number wow fadeInUp" data-wow-delay="0.6s">
+                                67<span class="apartment-info-small">м<span class="apartment-info-index">2</span></span>
+                            </div>
+                            <div class="apartment-info-text wow fadeInUp" data-wow-delay="0.7s">общая <br>площадь</div>
+                        </div>
+                        <div class="apartment-info-item">
+                            <div class="apartment-info-number wow fadeInUp" data-wow-delay="0.7s">
+                                100<span class="apartment-info-percent">%</span>
+                            </div>
+                            <div class="apartment-info-text wow fadeInUp" data-wow-delay="0.8s">готовность</div>
+                        </div>
                     </div>
                 </div>
                 <ul class="apartment-list">
+                    <li class="apartment-item wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="0.3s">
+                        <span class="apartment-name">Комната</span>
+                        <span class="apartment-dots"></span>
+                        <span class="apartment-value">
+                            23<span class="apartment-value-small">м<span class="apartment-value-index">2</span></span>
+                        </span>
+                    </li>
+                    <li class="apartment-item wow fadeInUp" data-wow-delay="0.9s" data-wow-duration="0.3s">
+                        <span class="apartment-name">Спальня</span>
+                        <span class="apartment-dots"></span>
+                        <span class="apartment-value">
+                            15<span class="apartment-value-small">м<span class="apartment-value-index">2</span></span>
+                        </span>
+                    </li>
+                    <li class="apartment-item wow fadeInUp" data-wow-delay="1s" data-wow-duration="0.3s">
+                        <span class="apartment-name">Кухня</span>
+                        <span class="apartment-dots"></span>
+                        <span class="apartment-value">
+                            19<span class="apartment-value-small">м<span class="apartment-value-index">2</span></span>
+                        </span>
+                    </li>
+                    <li class="apartment-item wow fadeInUp" data-wow-delay="1.1s" data-wow-duration="0.3s">
+                        <span class="apartment-name">Ванна</span>
+                        <span class="apartment-dots"></span>
+                        <span class="apartment-value">
+                            19<span class="apartment-value-small">м<span class="apartment-value-index">2</span></span>
+                        </span>
+                    </li>
+                    <li class="apartment-item wow fadeInUp" data-wow-delay="1.2s" data-wow-duration="0.3s">
+                        <span class="apartment-name">Прихожая / коридор</span>
+                        <span class="apartment-dots"></span>
+                        <span class="apartment-value">
+                            4<span class="apartment-value-small">м<span class="apartment-value-index">2</span></span>
+                        </span>
+                    </li>
+                    <li class="apartment-item wow fadeInUp" data-wow-delay="1.3s" data-wow-duration="0.3s">
+                        <span class="apartment-name">Этаж</span>
+                        <span class="apartment-dots"></span>
+                        <span class="apartment-value">1/11</span>
+                    </li>
+                </ul>
+                <ul class="apartment-list tabs-hide">
                     <li class="apartment-item wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="0.3s">
                         <span class="apartment-name">Комната</span>
                         <span class="apartment-dots"></span>
@@ -280,13 +351,13 @@
                 </p>
             </div>
         </div>
+        <div class="footer-logo">
+            <div class="footer-logo-text footer-logo-text_white">Разработка и поддержка</div>
+            <a href="">
+                <img src="img/future2.svg" alt="" class="footer-logo-img">
+            </a>
+        </div>
     </section>
-    <div class="footer-logo">
-        <div class="footer-logo-text footer-logo-text_white">Разработка и поддержка</div>
-        <a href="">
-            <img src="img/future2.svg" alt="" class="footer-logo-img">
-        </a>
-    </div>
     <div class="popup">
         <div class="popup-container">
             <form action="" class="popup-form">
@@ -338,9 +409,9 @@
         <div class="footer-right">
             <div class="footer-right-text">© 2017 – 2018 EvroMisto.</div>
             <div class="footer-logo footer-logo_mob">
-                <div class="footer-logo-text">Разработка и поддержка</div>
+                <div class="footer-logo-text footer-logo-text_white">Разработка и поддержка</div>
                 <a href="">
-                    <img src="img/future.svg" alt="" class="footer-logo-img">
+                    <img src="img/future2.svg" alt="" class="footer-logo-img">
                 </a>
             </div>
         </div>

@@ -217,7 +217,7 @@ img
 			flex-direction: column
 			align-items: flex-start
 			justify-content: space-between
-			height: auto
+			height: 100%
 		&-btn
 			margin: 5.27vh 0 6.44vh
 		&.active
@@ -1330,7 +1330,7 @@ img
 .house
 	&-block
 		padding: 180px 0 0 23vw
-		max-width: calc(1100px + 23vw)
+		max-width: 80vw
 		min-height: 100vh
 	&-top
 		display: flex
@@ -1368,7 +1368,7 @@ img
 		display: flex
 		justify-content: space-between
 		align-items: flex-start
-		margin-top: 140px
+		margin-top: 125px
 		position: relative
 		&-compass
 			width: 60px
@@ -1384,8 +1384,8 @@ img
 			align-items: center
 			justify-content: flex-start
 		&-center
-			max-width: 900px
-			margin: -160px -80px 0 0
+			max-width: 460px
+			margin: -40px -80px 0 0
 		&-plan
 			position: relative
 			display: inline-block
@@ -1537,7 +1537,7 @@ img
 			top: -5px
 	&-dots
 		width: 100%
-		border-bottom: 1px dotted #468fb0
+		border-bottom: 2px dotted #468fb0
 		margin: 0 20px 0 5px
 		position: relative
 		top: -3px
@@ -1657,6 +1657,8 @@ img
 			font-family: "SegoeUISemiBold"
 			font-size: 14px
 			margin-bottom: 10px
+			&_white
+				color: #ffffff
 .active .burger-span_top
 	transform: translate(-50%, 5px) rotate(-225deg)
 .active .burger-span_bottom
@@ -1750,6 +1752,7 @@ img
 	top: 0
 	padding: 10px
 	display: none
+	z-index: 1
 .filter-close
 	display: none
 	position: fixed
@@ -1776,6 +1779,7 @@ img
 	&-right
 		width: 500px
 		margin-left: 20px
+		flex-shrink: 0
 	&-build
 		position: absolute
 		bottom: 0
@@ -1789,6 +1793,7 @@ img
 		max-width: 1100px
 		display: flex
 		justify-content: space-between
+		padding-right: 10px
 	&-title
 		color: #ffffff
 		font-family: Arial
@@ -1814,7 +1819,7 @@ img
 	.fp-tableCell
 		height: 100vh!important
 	&-content
-		padding: 120px 0 0 23vw
+		padding: 120px 20px 0 23vw
 	&-flex
 		display: flex
 		justify-content: space-between
@@ -1823,6 +1828,7 @@ img
 	&-left
 		width: 500px
 		position: relative
+		margin-right: 30px
 	&-right
 		width: 500px
 		margin-top: -30px
@@ -1834,7 +1840,7 @@ img
 		font-size: 16px
 		padding: 0 0 30px 55px
 		line-height: 17.93px
-		background: url(../img/checked.svg) no-repeat left top
+		background: url(../img/checked.svg) no-repeat left top 5px
 		background-size: 14px 12px
 		&:last-child
 			padding-bottom: 0
@@ -1847,7 +1853,7 @@ img
 		margin-top: 30px
 	&-slider
 		margin-top: 100px
-		width: calc(100% + 70px)
+		width: calc(100% + 90px)
 		margin-left: -70px
 	&-row
 		display: flex
@@ -1879,7 +1885,7 @@ img
 	font-size: 40px
 	font-weight: 700
 .group
-	padding: 100px 0 150px 23vw
+	padding: 100px 20px 150px 23vw
 	position: relative
 	&-flex
 		display: flex
@@ -1912,12 +1918,13 @@ img
 		filter: grayscale(100%)
 	&-right
 		padding-top: 50px
+		flex-shrink: 0
 .gallery
-	padding: 180px 0 135px 23vw
+	padding: 180px 20px 135px 23vw
 	min-height: 100vh
 	position: relative
 	&-content
-		max-width: 1100px
+		max-width: 61vw
 	&-subtitle
 		color: #2b3847
 		font-family: Arial
@@ -1985,6 +1992,7 @@ img
 		margin: 60px 0 50px -70px
 .gallery-img
 	transition: transform .5s ease
+	width: 100%
 .fancybox-button svg
 	display: none
 .fancybox-navigation .fancybox-button--arrow_left
@@ -2045,7 +2053,7 @@ img
 	&-build
 		position: absolute
 		height: 100vh
-		top: 0
+		bottom: 0
 		right: 0
 		z-index: -1
 		display: flex
@@ -2085,7 +2093,7 @@ img
 .info
 	background: #ffffff
 	&-content
-		padding: 100px 0 150px 23vw
+		padding: 100px 20px 150px 23vw
 		&-flex
 			justify-content: space-between
 			align-items: flex-start
@@ -2118,12 +2126,14 @@ img
 	&-item
 		padding-left: 50px
 		margin-bottom: 30px
-		background: url(../img/checked.svg) no-repeat left top
+		background: url(../img/checked.svg) no-repeat left top 5px
 		background-size: 14px 12px
 		color: #474e56
 		font-family: "SegoeUISemiBold"
 		font-size: 16px
 		line-height: 23.91px
+		&:last-child
+			margin-bottom: 0
 		&_sm
 			margin-bottom: 20px
 .consist-slider .slick-slide
@@ -2238,7 +2248,7 @@ img
 		font-family: Arial
 		font-size: 24px
 		font-weight: 700
-		line-height: 27.9px
+		line-height: 1.16
 		margin-top: 10px
 		transition: color.5s ease
 .list-bottom_news
@@ -2296,7 +2306,7 @@ img
 		&:last-child
 			margin-bottom: 0
 	&-overflow
-		max-width: calc(100% + 70px)
+		width: calc(100% + 70px)
 		margin: 60px 0 50px -70px
 		overflow: hidden
 	&-img
@@ -2335,4 +2345,46 @@ img
 		text-align: right
 .st0
 	transition: fill .5s ease
+.header_mob__active
+	.color3
+		fill: #B8C935
+	.color1
+		fill: #D36B0E
+	.color2
+		fill: #446183
+	.burger-span
+		background: #2b3847
+	.header-left-text, .header-left-phone
+		color: rgba(43, 56, 71, 0.5)
+.error-page .header-menu .menu-nav
+	display: block
+.footer-grey .footer
+	background: #f3f5f6
+.post-block
+	width: calc(100% + 90px)
+	margin-left: -70px
+.consist-slider .slick-slide
+	height: 600px
+	overflow: hidden
+.consist-slider .slick-slide img
+	height: 100%
+	object-fit: cover
+.apartment-back
+	width: 50px
+	height: 50px
+	border: 1px solid rgba(255, 255, 255, 0.5)
+	background: url(../img/arrow-back.svg) no-repeat center
+	background-size: 7px 10px
+	border-radius: 50%
+	cursor: pointer
+	display: block
+	position: absolute
+	left: 75px
+	top: 0
+.dark-menu .burger-span
+	background: #446183
+.no-white .header_mob.white
+	background: transparent
+.info-text_top
+	margin-top: 30px
 @import "media" // Всегда в конце

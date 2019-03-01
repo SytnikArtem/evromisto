@@ -22,7 +22,7 @@ function initMap() {
   var centerLatLng = new google.maps.LatLng(thisCenterX, thisCenterY);
   var mapOptions = {
     center: centerLatLng,
-    zoom: 15,
+    zoom: 12,
     scrollwheel: false,
     panControl: false,
     zoomControl: true,

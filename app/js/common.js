@@ -1,9 +1,28 @@
-$(document).ready(function() {
-    var time = 5, // времья перелистывания слайдов главного слайдера
+'use strict';
+
+$(document).ready(function () {
+
+    $('.apartament-level-btn').click(function(e){
+        e.preventDefault();
+        var taIndex = $(this).index();
+        $('.apartment-img').hide();
+        $('.apartment-list').hide();
+        $('.apartment-info').hide();
+        $('.apartment-list').eq(taIndex).show();
+        $('.apartment-img').eq(taIndex).show();
+        $('.apartment-info').eq(taIndex).show();
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+
+    var time = 5,
+        // времья перелистывания слайдов главного слайдера
         bar,
         $slick = $('.main-slider'),
         tick,
         isPause,
+        wow,
+        wow2,
+        wow3,
         percentTime;
     if ($(window).width() > 1024) {
         $('#fullpage').fullpage({
@@ -11,52 +30,46 @@ $(document).ready(function() {
             controlArrows: false,
             navigation: true,
             responsiveWidth: 1025,
-            onLeave: function(origin, destination, direction, index){
-                wow2 = new WOW(
-                    {
-                        boxClass:     'wow2',      // default
-                        animateClass: 'animated', // default
-                        offset:       0,          // default
-                        mobile:       true,       // default
-                        live:         true        // default
-                    }
-                )
+            onLeave: function onLeave(origin, destination, direction, index) {
+                wow2 = new WOW({
+                    boxClass: 'wow2', // default
+                    animateClass: 'animated', // default
+                    offset: 0, // default
+                    mobile: true, // default
+                    live: true // default
+                });
                 wow2.init();
-                wow3 = new WOW(
-                    {
-                        boxClass:     'wow3',      // default
-                        animateClass: 'animated', // default
-                        offset:       0,          // default
-                        mobile:       true,       // default
-                        live:         true        // default
-                    }
-                )
+                wow3 = new WOW({
+                    boxClass: 'wow3', // default
+                    animateClass: 'animated', // default
+                    offset: 0, // default
+                    mobile: true, // default
+                    live: true // default
+                });
                 wow3.init();
                 startProgressbar();
                 $('.section.active').find('.wow').removeClass('wow');
-                if(destination.item.classList.contains('section_white')) {
+                if (destination.item.classList.contains('section_white')) {
                     $('.menu, .header').addClass('active');
                 }
-                if(destination.item.classList.contains('section_white')) {
+                if (destination.item.classList.contains('section_white')) {
                     $('.menu, .header').addClass('active');
-                }
-                else {
+                } else {
                     $('.menu, .header').removeClass('active');
                 }
-                if(destination.item.classList.contains('fp-right_dark')) {
+                if (destination.item.classList.contains('fp-right_dark')) {
                     $('.fp-right').addClass('active');
-                }
-                else {
+                } else {
                     $('.fp-right').removeClass('active');
                 }
-                // if (destination.index == 1){
-                //     $('.menu').addClass('menu_white')
-                // }
-                // else {
-                //     $('.menu').removeClass('menu_white')
-                // }
+                if (destination.index > 0){
+                    $('.menu-bottom').removeClass('menu-bottom_first')
+                }
+                else {
+                    $('.menu-bottom').addClass('menu-bottom_first')
+                }
                 $('.section').eq(destination.index).addClass('up');
-                $('.section').eq(destination.index+1).removeClass('up');
+                $('.section').eq(destination.index + 1).removeClass('up');
             }
         });
         $('#fullpage2').fullpage({
@@ -65,48 +78,42 @@ $(document).ready(function() {
             navigation: false,
             scrollOverflow: true,
             responsiveWidth: 1025,
-            onLeave: function(origin, destination, direction, index){
-                wow2 = new WOW(
-                    {
-                        boxClass:     'wow2',      // default
-                        animateClass: 'animated', // default
-                        offset:       0,          // default
-                        mobile:       true,       // default
-                        live:         true        // default
-                    }
-                )
+            onLeave: function onLeave(origin, destination, direction, index) {
+                wow2 = new WOW({
+                    boxClass: 'wow2', // default
+                    animateClass: 'animated', // default
+                    offset: 0, // default
+                    mobile: true, // default
+                    live: true // default
+                });
                 wow2.init();
-                wow3 = new WOW(
-                    {
-                        boxClass:     'wow3',      // default
-                        animateClass: 'animated', // default
-                        offset:       0,          // default
-                        mobile:       true,       // default
-                        live:         true        // default
-                    }
-                )
+                wow3 = new WOW({
+                    boxClass: 'wow3', // default
+                    animateClass: 'animated', // default
+                    offset: 0, // default
+                    mobile: true, // default
+                    live: true // default
+                });
                 wow3.init();
                 startProgressbar();
                 $('.section.active').find('.wow').removeClass('wow');
-                if(destination.item.classList.contains('section_white')) {
+                if (destination.item.classList.contains('section_white')) {
                     $('.menu, .header').addClass('active');
                 }
-                if(destination.item.classList.contains('section_white')) {
+                if (destination.item.classList.contains('section_white')) {
                     $('.menu, .header').addClass('active');
-                    $('.header').addClass('white')
-                }
-                else {
+                    $('.header').addClass('white');
+                } else {
                     $('.menu, .header').removeClass('active');
-                    $('.header').removeClass('white')
+                    $('.header').removeClass('white');
                 }
-                if(destination.item.classList.contains('fp-right_dark')) {
+                if (destination.item.classList.contains('fp-right_dark')) {
                     $('.fp-right').addClass('active');
-                }
-                else {
+                } else {
                     $('.fp-right').removeClass('active');
                 }
                 $('.section').eq(destination.index).addClass('up');
-                $('.section').eq(destination.index+1).removeClass('up');
+                $('.section').eq(destination.index + 1).removeClass('up');
             }
         });
     }
@@ -152,17 +159,15 @@ $(document).ready(function() {
     $('.main-fourth-btn_next').click(function () {
         $('.main-slider').slick('slickNext');
     });
-    $('.main-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+    $('.main-slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
         $('.main-fourth-item').eq(nextSlide).addClass('active').siblings().removeClass('active');
-        wow3 = new WOW(
-            {
-                boxClass:     'wow3',      // default
-                animateClass: 'animated', // default
-                offset:       0,          // default
-                mobile:       false,       // default
-                live:         true        // default
-            }
-        )
+        wow3 = new WOW({
+            boxClass: 'wow3', // default
+            animateClass: 'animated', // default
+            offset: 0, // default
+            mobile: false, // default
+            live: true // default
+        });
         wow3.init();
     });
     $('.main-fourth-number').slick({
@@ -203,7 +208,7 @@ $(document).ready(function() {
         slidesToScroll: 1,
         // verticalSwiping: false,
         asNavFor: '.house-slider',
-        cssEase: 'cubic-bezier(.36,-0.41,.64,.39)',
+        cssEase: 'cubic-bezier(.36,-0.41,.64,.39)'
         // vertical: false
     });
     $('.house-section').slick({
@@ -234,7 +239,7 @@ $(document).ready(function() {
         fade: true,
         slidesToShow: 1,
         slidesToScroll: 1,
-        asNavFor: '.house-section',
+        asNavFor: '.house-section'
     });
     $('.floor-top').click(function () {
         $('.house-floor').slick('slickNext');
@@ -248,17 +253,17 @@ $(document).ready(function() {
     $('.section-bottom').click(function () {
         $('.house-section').slick('slickPrev');
     });
-    $('.main-fourth-item').click(function(){
-       $(this).addClass('active').siblings().removeClass('active');
-       $('.main-slider').slick('slickGoTo', $(this).index())
+    $('.main-fourth-item').click(function () {
+        $(this).addClass('active').siblings().removeClass('active');
+        $('.main-slider').slick('slickGoTo', $(this).index());
     });
     // прогрессбар
     bar = $('.progress_main');
     $('.main-fourth-btn, .main-fourth-item').on({
-        mouseenter: function() {
+        mouseenter: function mouseenter() {
             isPause = true;
         },
-        mouseleave: function() {
+        mouseleave: function mouseleave() {
             isPause = false;
         }
     });
@@ -269,13 +274,12 @@ $(document).ready(function() {
         tick = setInterval(interval, 10);
     }
     function interval() {
-        if(isPause === false) {
-            percentTime += 1 / (time+0.1);
+        if (isPause === false) {
+            percentTime += 1 / (time + 0.1);
             bar.css({
-                width: percentTime+"%"
+                width: percentTime + "%"
             });
-            if(percentTime >= 100)
-            {
+            if (percentTime >= 100) {
                 $slick.slick('slickNext');
                 $('.consist-slider').slick('slickNext');
                 startProgressbar();
@@ -284,109 +288,109 @@ $(document).ready(function() {
     }
     function resetProgressbar() {
         bar.css({
-            width: 0+'%'
+            width: 0 + '%'
         });
         clearTimeout(tick);
     }
-    if($(window).width() > 768) {
-        $('.main-fourth-btn, .main-fourth-item').click(function() {
+    if ($(window).width() > 768) {
+        $('.main-fourth-btn, .main-fourth-item').click(function () {
             startProgressbar();
         });
         startProgressbar();
     }
     $('#options').ddslick();
-    $('.header-right-btn').click(function(e){
+    $('.header-right-btn, .header-menu-btn').click(function (e) {
         e.preventDefault();
         $('.popup').addClass('active');
-        // bodyFreezeScroll();
+        if ($(window).width() < 1024) {
+            bodyFreezeScroll();
+        }
     });
-    $('.popup-close').click(function(e){
+    $('.popup-close').click(function (e) {
         $('.popup').removeClass('active');
-        // bodyUnfreezeScroll();
+        if ($(window).width() < 1024) {
+            bodyUnfreezeScroll();
+        }
     });
-    wow = new WOW(
-        {
-            boxClass:     'wow',      // default
-            animateClass: 'animated', // default
-            offset:       0,          // default
-            mobile:       false,       // default
-            live:         true        // default
-        }
-    )
+    wow = new WOW({
+        boxClass: 'wow', // default
+        animateClass: 'animated', // default
+        offset: 0, // default
+        mobile: false, // default
+        live: true // default
+    });
     wow.init();
-    wow2 = new WOW(
-        {
-            boxClass:     'wow2',      // default
-            animateClass: 'animated', // default
-            offset:       0,          // default
-            mobile:       false,       // default
-            live:         true        // default
-        }
-    );
+    wow2 = new WOW({
+        boxClass: 'wow2', // default
+        animateClass: 'animated', // default
+        offset: 0, // default
+        mobile: false, // default
+        live: true // default
+    });
     wow2.init();
     $(document).mouseup(function (e) {
         var container = $(".popup-container");
-        if (container.has(e.target).length === 0){
+        if (container.has(e.target).length === 0) {
             $('.popup').removeClass('active');
-            // bodyUnfreezeScroll();
+            if ($(window).width() < 1024) {
+                bodyUnfreezeScroll();
+            }
         }
     });
     $(".range-line").slider({
         min: 35,
         max: 140,
-        values: [35,140],
+        values: [35, 140],
         step: 1,
         range: true,
-        stop: function(event, ui) {
-            $(".minCost").val($(".range-line").slider("values",0));
-            $(".maxCost").val($(".range-line").slider("values",1));
+        stop: function stop(event, ui) {
+            $(".minCost").val($(".range-line").slider("values", 0));
+            $(".maxCost").val($(".range-line").slider("values", 1));
         },
-        slide: function(event, ui){
-            $(".minCost").val($(".range-line").slider("values",0));
-            $(".maxCost").val($(".range-line").slider("values",1));
-            $('.ui-slider-handle').eq(0).text($(".range-line").slider("values",0));
-            $('.ui-slider-handle').eq(1).text($(".range-line").slider("values",1))
-        },
+        slide: function slide(event, ui) {
+            $(".minCost").val($(".range-line").slider("values", 0));
+            $(".maxCost").val($(".range-line").slider("values", 1));
+            $('.ui-slider-handle').eq(0).text($(".range-line").slider("values", 0));
+            $('.ui-slider-handle').eq(1).text($(".range-line").slider("values", 1));
+        }
 
     });
     $('.ui-slider-handle').eq(0).text('35');
     $('.ui-slider-handle').eq(1).text('140');
-    $(".minCost").change(function(){
-        let value1 = $(".minCost").val();
-        let value2 = $(".maxCost").val();
-        console.log('ww')
+    $(".minCost").change(function () {
+        var value1 = $(".minCost").val();
+        var value2 = $(".maxCost").val();
 
-        if(parseInt(value1) > parseInt(value2)){
+        if (parseInt(value1) > parseInt(value2)) {
             value1 = value2;
             $(".minCost").val(value1);
-
         }
-        $(".range-line").slider("values",0,value1);
+        $(".range-line").slider("values", 0, value1);
     });
-    $(".maxCost").change(function(){
-        let value1 = $(".minCost").val();
-        let value2 = $(".maxCost").val();
+    $(".maxCost").change(function () {
+        var value1 = $(".minCost").val();
+        var value2 = $(".maxCost").val();
 
-        if (value2 > 140) { value2 = 140;
-            (".maxCost").val(140)
+        if (value2 > 140) {
+            value2 = 140;
+            ".maxCost".val(140);
         }
 
-        if(parseInt(value1) > parseInt(value2)){
+        if (parseInt(value1) > parseInt(value2)) {
             value2 = value1;
             $(".maxCost").val(value2);
         }
-        $(".range-line").slider("values",1,value2);
+        $(".range-line").slider("values", 1, value2);
     });
     setTimeout(function () {
-        if($('.list-right').length > 0 && $(window).width() > 1024) {
+        if ($('.list-right').length > 0 && $(window).width() > 1024) {
             var heightDuration = $('.list-right').height() - $('.list-filter').height();
-            var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "0", offset: "-120"}});
+            var controller = new ScrollMagic.Controller({ globalSceneOptions: { triggerHook: "0", offset: "-120" } });
             var scene1 = new ScrollMagic.Scene({
                 triggerElement: ".list-right", // point of execution
                 duration: heightDuration, // pin element for the window height - 1
                 reverse: true // allows the effect to trigger when scrolled in the reverse direction
-            })
-                .setPin(".list-filter") // the element we want to pin
+            }).setPin(".list-filter") // the element we want to pin
                 .addTo(controller);
         }
     }, 500);
@@ -394,25 +398,24 @@ $(document).ready(function() {
         currentItem,
         currentPercent,
         maxIndex = 3;
-    $('.list-btn_next').click(function(){
+    $('.list-btn_next').click(function () {
         itemIndex = itemIndex + 1;
-        if(itemIndex > maxIndex) {
-            itemIndex = maxIndex
+        if (itemIndex > maxIndex) {
+            itemIndex = maxIndex;
         }
-
 
         currentItem = '.step' + itemIndex;
         $('.list-content-item').css('display', 'none');
-        $(currentItem).css({'display': 'block', 'opacity': '1', 'pointer-events': 'auto'});
+        $(currentItem).css({ 'display': 'block', 'opacity': '1', 'pointer-events': 'auto' });
         currentPercent = 50 * (itemIndex - 1) + '%';
         $('.list-page-item').eq(itemIndex - 1).addClass('active').siblings().removeClass('active');
         $('.progress_list').css('width', currentPercent);
-        $('html, body').animate({scrollTop: 0},300);
+        $('html, body').animate({ scrollTop: 0 }, 300);
     });
-    $('.list-btn_back').click(function(){
+    $('.list-btn_back').click(function () {
         itemIndex = itemIndex - 1;
-        if(itemIndex < 1) {
-            itemIndex = 1
+        if (itemIndex < 1) {
+            itemIndex = 1;
         }
         currentItem = '.step' + itemIndex;
         currentPercent = 50 * (itemIndex - 1) + '%';
@@ -420,7 +423,7 @@ $(document).ready(function() {
         $('.list-content-item').css('display', 'none');
         $(currentItem).css('display', 'block');
         $('.list-page-item').eq(itemIndex - 1).addClass('active').siblings().removeClass('active');
-        $('html, body').animate({scrollTop: 0},300)
+        $('html, body').animate({ scrollTop: 0 }, 300);
     });
     $('.list-page-item').click(function (e) {
         e.preventDefault();
@@ -431,49 +434,50 @@ $(document).ready(function() {
         currentPercent = 50 * (itemIndex - 1) + '%';
         $('.progress_list').css('width', currentPercent);
         $(this).addClass('active').siblings().removeClass('active');
-        $('html, body').animate({scrollTop: 0},300)
+        $('html, body').animate({ scrollTop: 0 }, 300);
     });
     $('.equipment-pointer').hover(function () {
-       var hoverIndex = $(this).index();
-       $('.equipment-item').eq(hoverIndex).addClass('active').siblings().removeClass('active')
-    },function () {
-        $('.equipment-item').removeClass('active')
+        var hoverIndex = $(this).index();
+        $('.equipment-item').eq(hoverIndex).addClass('active').siblings().removeClass('active');
+    }, function () {
+        $('.equipment-item').removeClass('active');
     });
     $('.house-top-section').hover(function () {
         var sectionIndex = $(this).index();
+
         $(this).parent().find('.house-top-section').eq(sectionIndex).addClass('hover').siblings().removeClass('hover');
-        $(this).parent().parent().find('.house-top-item').eq(sectionIndex).addClass('hover').siblings().removeClass('hover')
-    },function () {
+        $(this).parent().parent().find('.house-top-item').eq(sectionIndex).addClass('hover').siblings().removeClass('hover');
+    }, function () {
         $('.house-top-section').removeClass('hover');
         $('.house-top-item').removeClass('hover');
     });
     $('.house-top-section').click(function () {
         var sliderItem = $(this).index();
+        console.log($(this));
         $(this).addClass('active').siblings().removeClass('active');
-        $(this).parent().parent().find('.house-top-item').eq(sliderItem).addClass('active').siblings().removeClass('active');
-        $('.house-slider2').slick('slickGoTo', sliderItem)
+        // $(this).parent().parent().find('.house-top-item').eq(sliderItem).addClass('active').siblings().removeClass('active');
+        $('.house-slider2').slick('slickGoTo', sliderItem);
     });
-    $('.house-slider2').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+    $('.house-slider2').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
         $('.house-top-item').eq(nextSlide).addClass('active').siblings().removeClass('active');
         $('.house-top-section').eq(nextSlide).addClass('active').siblings().removeClass('active');
     });
-    $('.apartment-plan').click(function(){
-       $('.apartment-popup').addClass('active');
+    $('.apartment-plan').click(function () {
+        $('.apartment-popup').addClass('active');
     });
-    $('.apartment-close').click(function(){
+    $('.apartment-close').click(function () {
         $('.apartment-popup').removeClass('active');
     });
     $('.burger').click(function () {
-       $(this).toggleClass('active');
-       $(this).removeClass('white');
+        $(this).toggleClass('active');
+        $(this).removeClass('white');
         bodyFreezeScroll();
-       $('.header_mob').toggleClass('custom');
-       $('.header-menu').toggleClass('active');
+        $('.header_mob').toggleClass('custom');
+        $('.header-menu').toggleClass('active');
 
         if ($(this).hasClass('active')) {
             bodyFreezeScroll();
-        }
-        else {
+        } else {
             bodyUnfreezeScroll();
             $(this).addClass('white');
         }
@@ -482,15 +486,15 @@ $(document).ready(function() {
     function bodyFreezeScroll() {
         var bodyWidth = $body.innerWidth();
         $body.css('overflow', 'hidden');
-        $body.css('marginRight', ($body.css('marginRight') ? '+=' : '') + ($body.innerWidth() - bodyWidth))
+        $body.css('marginRight', ($body.css('marginRight') ? '+=' : '') + ($body.innerWidth() - bodyWidth));
     }
 
     function bodyUnfreezeScroll() {
         var bodyWidth = $body.innerWidth();
-        $body.css('marginRight', '0')
+        $body.css('marginRight', '0');
         $body.css('overflow', 'auto');
     }
-    function house(){
+    function house() {
         $('.house').hover(function () {
             var numberStreet = $(this).data("number");
             var streetName = $(this).data("street");
@@ -500,22 +504,19 @@ $(document).ready(function() {
             var special = $(this).data("spec");
             var positionCart = $(this).data("position");
             var scrollBlock = $('.main-second-build').scrollLeft();
-            var leftPosition = $(this).find('.house__number').offset().left - $('.main-second-build').offset().left + scrollBlock;
-            var topPosition = $(this).find('.house__number').offset().top - $('.main-second-build').offset().top;
-            console.log(leftPosition);
-            console.log(topPosition);
-            console.log(scrollBlock);
+            var leftPosition = this.querySelector('.house__number').getBoundingClientRect().left - document.querySelector('.main-second-build').getBoundingClientRect().left + scrollBlock;
+            var topPosition = this.querySelector('.house__number').getBoundingClientRect().top - document.querySelector('.main-second-build').getBoundingClientRect().top;
+
             $('.cart').addClass('active');
-            if(special !== undefined) {
+            if (special !== undefined) {
                 $('.cart-special').text(special);
                 $('.cart-top').css('display', 'none');
             }
-            if(saleRoom == undefined) {
+            if (saleRoom == undefined) {
                 $('.cart-bottom').css('display', 'none');
                 $('.cart-info').css('color', '#b0b4b9');
                 // $('.cart-special').text('');
-            }
-            else {
+            } else {
                 $('.cart-bottom').css('display', "flex");
                 $('.cart-info').css('color', '#ec6400');
                 $('.cart-top').css('display', 'flex');
@@ -529,41 +530,37 @@ $(document).ready(function() {
             var cartWidth = $('.cart').width();
             var cartHeight = $('.cart').height();
 
-            if(positionCart == "top") {
-                $('.cart').css({left: leftPosition - cartWidth, top: topPosition - cartHeight * 3});
+            if (positionCart == "top") {
+                $('.cart').css({ left: leftPosition - cartWidth, top: topPosition - cartHeight * 3 });
                 console.log('sss');
                 console.log(cartHeight);
                 console.log(cartWidth);
-            }
-            else if(positionCart == "top2") {
-                $('.cart').css({left: leftPosition - cartWidth, top: topPosition - cartHeight});
-            }
-            else {
-                $('.cart').css({left: leftPosition, top: topPosition});
+            } else if (positionCart == "top2") {
+                $('.cart').css({ left: leftPosition - cartWidth, top: topPosition - cartHeight });
+            } else {
+                $('.cart').css({ left: leftPosition, top: topPosition });
                 // console.log(2);
             }
-
-
-        }, function(){
-            $('.cart').removeClass('active')
+        }, function () {
+            $('.cart').removeClass('active');
         });
     }
     house();
-    $(".popup-input").mask("999 999 99 99",{placeholder:""});
+    $(".popup-input").mask("999 999 99 99");
     $('.left-list-btn').click(function () {
-       $('.list-right').addClass('active');
-       bodyFreezeScroll();
+        $('.list-right').addClass('active');
+        bodyFreezeScroll();
     });
     $('.filter-close').click(function () {
         $('.list-right').removeClass('active');
-        bodyUnfreezeScroll()
+        bodyUnfreezeScroll();
     });
-    $('.gallery-main').masonry({
-        // options
-        itemSelector: '.gallery-item',
-        percentPosition: true,
-        gutter: 10
-    });
+    // $('.gallery-main').masonry({
+    //     // options
+    //     itemSelector: '.gallery-item',
+    //     percentPosition: true,
+    //     gutter: 10
+    // });
     $('[data-fancybox="gallery"]').fancybox({
         buttons: [
             // "zoom",
@@ -572,20 +569,18 @@ $(document).ready(function() {
             //"fullScreen",
             //"download",
             // "thumbs",
-            "close"
-        ],
+            "close"],
         infobar: false
     });
 });
-$(window).scroll(function() {
+$(window).scroll(function () {
     var scrollTop;
     scrollTop = $(this).scrollTop();
     if (scrollTop > 50) {
         $('.burger').addClass('white');
         $('.header').addClass('white');
         // $('.header_mob').addClass('custom');
-    }
-    else {
+    } else {
         $('.burger').removeClass('white');
         $('.header').removeClass('white');
         // $('.header_mob').removeClass('custom');
